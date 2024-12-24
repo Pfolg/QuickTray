@@ -2,6 +2,7 @@
 # Editor    PyCharm
 # File   QkStart |Author    Pfolg
 # 2024/12/23 17:36
+# 标记为必须文件
 import sys
 import pystray
 from pystray import MenuItem, Menu

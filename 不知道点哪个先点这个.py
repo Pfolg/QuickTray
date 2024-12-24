@@ -2,6 +2,7 @@
 # Editor    PyCharm
 # File   不知道点哪个先点这个 |Author    Pfolg
 # 2024/12/24 16:59
+# 标记为必须文件
 import json
 import winreg as reg
 import os
