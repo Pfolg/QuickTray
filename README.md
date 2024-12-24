@@ -10,6 +10,7 @@
 
 [Download](https://github.com/Pfolg/QkStart/releases/tag/v6)
 
+
 # Function
 
 设置基于Config.json！还有Windows11，也就是说，不能保证这个程序可以在其他操作系统上运行！
@@ -28,6 +29,8 @@
 
 # Set
 
+**[教程视频](https://www.bilibili.com/video/BV1BbkoYBEbB/)**
+
 + 1、点击 setting 程序进行设置
 + 2、直接修改 config.json 文件进行设置（推荐）
 + 3、通过导航程序（不知道点哪个先点这个）设置
@@ -44,5 +47,7 @@
 + 7、由于开发者是初学 Python，难免会有些错误，请反馈至issue
 
 # 声明
+
+感谢所有本程序涉及的第三方库及Python语言开发者们，未能一一致谢，抱歉！
 
 如果程序中涉及的一些材料侵犯了您的版权，请联系我删除！
