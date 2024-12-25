@@ -2,7 +2,6 @@
 # Editor    PyCharm
 # File   不知道点哪个先点这个 |Author    Pfolg
 # 2024/12/24 16:59
-# 标记为必须文件
 import json
 import winreg as reg
 import os
@@ -91,8 +90,7 @@ def writeConfig(plugins, configDict):
     # 替换内容
     if plugins and configDict:
         scripts = {}
-        # 获取父目录
-        father_path = os.getcwd()
+        
         # print(plugins, configDict)
         # 修改格式
         for item in plugins:
@@ -138,10 +136,13 @@ class Direction:
             frame, text="查看日志", command=lambda: os.system("start {}".format(log_file)), width=12
         ).place(relx=.5, rely=.2)
         ttk.Button(
-            frame, text="更新plugins", command=lambda: writeConfig(readPlugins(), readConfig()), width=24
-        ).place(relx=0.1, rely=.4)
+            frame, text="更新plugins", command=lambda: writeConfig(readPlugins(), readConfig()), width=12
+        ).place(relx=0.05, rely=.4)
         ttk.Button(
-            frame, text="添加开机自启", command=lambda: modify_startup(main_program, "QkStart"), width=24
+            frame, text="配置文件", command=lambda: os.system("start {}".format(config_file)), width=12
+        ).place(relx=0.5, rely=.4)
+        ttk.Button(
+            frame, text="添加开机自启", command=lambda: modify_startup(father_path+"\\"+main_program, "QkStart"), width=24
         ).place(relx=.1, rely=.6)
         ttk.Button(
             frame, text="移除开机自启", command=lambda: delete_startup("QkStart"), width=24
@@ -152,6 +153,8 @@ class Direction:
 
 
 if __name__ == '__main__':
+    # 获取父目录
+    father_path = os.getcwd()
     setting_file = "setting.pyw"
     main_program = "QkStart.pyw"
     config_file = "config.json"
