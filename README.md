@@ -1,5 +1,21 @@
 
+<div align="center">
+  <h2>QKStart</h3>
+
+  <img style="display: inline-block;" src="https://img.shields.io/github/watchers/Pfolg/QkStart" alt="GitHub watchers" />
+  <a href="https://github.com/Pfolg/QkStart/stargazers"><img style="display: inline-block;" src="https://img.shields.io/github/stars/Pfolg/QkStart" alt="GitHub stars" /></a>
+  <a href="https://github.com/Pfolg/QkStart/network"><img style="display: inline-block;" src="https://img.shields.io/github/forks/Pfolg/QkStart" alt="GitHub forks" /></a>
+  <a href="https://github.com/Pfolg/QkStart/issues"><img style="display: inline-block;" src="https://img.shields.io/github/issues/Pfolg/QkStart" alt="GitHub issues" /></a>
+  <a href="https://github.com/Pfolg/QkStart/pulls"><img style="display: inline-block;" src="https://img.shields.io/github/issues-pr-closed-raw/Pfolg/QkStart" alt="GitHub closed pull requests" /></a>
+  <img style="display: inline-block;" src="https://img.shields.io/github/contributors/Pfolg/QkStart" alt="GitHub contributors" />
+  <a href="https://github.com/Pfolg/QkStart/blob/main/LICENSE"><img style="display: inline-block;" src="https://img.shields.io/github/license/Pfolg/QkStart" alt="GitHub license" /></a>
+  <img style="display: inline-block;" src="https://img.shields.io/github/repo-size/Pfolg/QkStart" alt="GitHub repo size" />
+</div>
+
+<br>
+
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=Pfolg&show_icons=true&theme=vue)
+
 # QkStart
 
 ![](QkStart.png)
