@@ -2,7 +2,6 @@
 # Editor    PyCharm
 # File   setting |Author    Pfolg
 # 2024/12/21 22:18
-# 标记为必须文件
 """
 需要一个线程读取文件，然后反馈到程序中  文件监视线程
 提供一个窗口，给用户更改设置   窗口线程
@@ -21,7 +20,7 @@ import time  # 管理时间的库
 # name
 program_name = "QkStart控制面板"
 # 定义配置文件
-config_file = ".\\config.json"
+config_file = ".\\QkStart_config.json"
 # 定义日志文件
 log_file = ".\\QkStartLog.log"
 # 默认图标
@@ -70,17 +69,17 @@ class Setting:
             file.writelines(f'{time.strftime("%Y/%m/%d %H:%M:%S")} {keyword}\n')
         # messagebox.showinfo(self.name, keyword)
 
-    # 定义配置文件阅读程序
+    # 定义配置文件阅读程序&有保存功能
     def readConfigFile(self):
         while self.running:  # 无限循环，当 self.running 等于 false 时退出
-            if os.path.exists(config_file):  # 判断配置文件是否存在
+            if os.path.exists(config_file) and self.running==True:  # 判断配置文件是否存在
                 with open(config_file, "r", encoding="utf-8") as file1:
                     data = json.load(file1)  # 如果配置文件存在，则读入数据
-                if self.count == 0:  # 初次读入数据时，读入数据等于 date
+                if self.count == 0 and self.running==True:  # 初次读入数据时，读入数据等于 date
                     self.data = data
-                if self.data != data and self.count != 0:  # 如果程序里的数据不等于读入数据，且不是第一次循环，则覆写配置
+                if self.data != data and self.count != 0 and self.running==True:  # 如果程序里的数据不等于读入数据，且不是第一次循环，则覆写配置
                     with open(config_file, "w", encoding="utf-8") as file2:
-                        json.dump(self.data, file2, ensure_ascii=False, indent=4)
+                        json.dump(self.data, file2, ensure_ascii=False, indent=4)#覆写配置
             else:  # 不存在，询问用户是否需要创建，同意则创建，不同意则退出程序
                 if messagebox.askyesno(
                         "Error",
@@ -179,30 +178,31 @@ class Setting:
 
         # 测试用函数
         def save_change(msg=None):
-            if default_func.get() == "None" or not default_func.get():
-                x1 = None
-            else:
-                x1 = default_func.get()
-            if ico_path.get().split(".")[-1] != "ico" or not ico_path.get():
-                x2 = default_ico
-            else:
-                x2 = ico_path.get()
-            if music_path.get().split(".")[-1] != "mp3" or not music_path.get():
-                x3 = default_music
-            else:
-                x3 = music_path.get()
-            changed_data = {
-                "StartupApp": bool_value1.get(),
-                "Startup": bool_value2.get(),
-                "DesktopLabel": bool_value3.get(),
-                "Default": x1,
-                "ico_path": x2,  # 绝对不能为空
-                "music": x3
-            }
+            if self.running==True:
+                if default_func.get() == "None" or not default_func.get():
+                    x1 = None
+                else:
+                    x1 = default_func.get()
+                if ico_path.get().split(".")[-1] != "ico" or not ico_path.get():
+                    x2 = default_ico
+                else:
+                    x2 = ico_path.get()
+                if music_path.get().split(".")[-1] not in [ "mp3","wav"] or not music_path.get() :
+                    x3 = default_music
+                else:
+                    x3 = music_path.get()
+                changed_data = {
+                    "StartupApp": bool_value1.get(),
+                    "Startup": bool_value2.get(),
+                    "DesktopLabel": bool_value3.get(),
+                    "Default": x1,
+                    "ico_path": x2,  # 绝对不能为空
+                    "music": x3
+                }
 
-            self.data["OtherFunction"] = changed_data
-            self.write_log(msg)
-            print("Change saved")
+                self.data["OtherFunction"] = changed_data
+                self.write_log(msg)
+                print("Change saved"+msg)
 
         tab5 = ttk.Frame(self.notebook)
         tab5Name = list(self.data.keys())[4]
@@ -234,7 +234,7 @@ class Setting:
         ).place(relx=.02, rely=.22)
 
         def midFun5_music():
-            find_files(music_path, limit=[("音频文件", "*.mp3"), ])
+            find_files(music_path, limit=[("mp3文件", "*.mp3"),("wav文件","*.wav"), ])
             save_change("Changed music_path " + music_path.get())
 
         # 提示音设定

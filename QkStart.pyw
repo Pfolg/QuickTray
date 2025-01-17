@@ -2,7 +2,6 @@
 # Editor    PyCharm
 # File   QkStart |Author    Pfolg
 # 2024/12/23 17:36
-# 标记为必须文件
 import sys
 import pystray
 from pystray import MenuItem, Menu
@@ -18,9 +17,18 @@ import requests
 from tkinter import messagebox
 
 version = 6
-config_file = ".\\config.json"
+config_file = ".\\QkStart_config.json"
 setting_program = ".\\setting.pyw"
 description = "快捷方式的替代：快捷托盘"
+# time.sleep(30)
+
+
+def restart_program():
+    """重新启动当前程序"""
+    # 运行一个新的，结束当前的
+    os.startfile(os.path.abspath(__file__))
+    icon.stop()
+    sys.exit()
 
 if not os.path.exists(config_file):
     messagebox.showerror("Error", f"未发现config_file：{config_file}\n运行设置程序！")
@@ -94,6 +102,7 @@ menu = (
     Menu.SEPARATOR,
     MenuItem("Setting", action=lambda: os.system(f"start {setting_program}")),
     MenuItem(text=f"DesktopLabel {other_function.get('DesktopLabel')}", action=None),
+    MenuItem(text="Restart",action=restart_program),
     MenuItem(text='Quit', action=lambda: icon.stop()),
     MenuItem(
         text="", action=lambda: os.system(f"start {other_function.get('Default')}"), default=True,
@@ -156,6 +165,8 @@ def auto_run():
             except BaseException:
                 continue
             time.sleep(5)
+    else:
+        return
 
 
 # 载入图片

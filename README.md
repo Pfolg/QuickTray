@@ -1,8 +1,7 @@
-
 <div align="center">
   <h2>QKStart</h3>
 
-  <img style="display: inline-block;" src="https://img.shields.io/github/watchers/Pfolg/QkStart" alt="GitHub watchers" />
+<img style="display: inline-block;" src="https://img.shields.io/github/watchers/Pfolg/QkStart" alt="GitHub watchers" />
   <a href="https://github.com/Pfolg/QkStart/stargazers"><img style="display: inline-block;" src="https://img.shields.io/github/stars/Pfolg/QkStart" alt="GitHub stars" /></a>
   <a href="https://github.com/Pfolg/QkStart/network"><img style="display: inline-block;" src="https://img.shields.io/github/forks/Pfolg/QkStart" alt="GitHub forks" /></a>
   <a href="https://github.com/Pfolg/QkStart/issues"><img style="display: inline-block;" src="https://img.shields.io/github/issues/Pfolg/QkStart" alt="GitHub issues" /></a>
@@ -31,7 +30,6 @@
 
 [Download](https://github.com/Pfolg/QkStart/releases/tag/v6)
 
-
 # Function
 
 设置基于Config.json！还有Windows11，也就是说，不能保证这个程序可以在其他操作系统上运行！
@@ -40,9 +38,7 @@
 
 程序读取 config.json 文件后，然后在托盘创建一个图标，图标里面包含有快捷（链接），每一个链接有相应的功能（需要用户自己设置）。
 
-
 ![](效果.png)
-
 
 放在 Startup 区域里面的链接，可以在开机启动一分钟后启动（如果连接了电源）。
 
@@ -56,9 +52,9 @@
 
 2、配置Python依赖，最好先创建一个虚拟环境再安装依赖：
 
-~~~shell
+```shell
 pip install -r requirements.txt 
-~~~
+```
 
 3、运行 `startup.pyw` 或 `setting.pyw`
 
