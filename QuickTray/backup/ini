@@ -1,0 +1,8 @@
+[tray]
+tip = Quick Tray
+logo = assets/luabackend.ico
+
+[infor]
+usecount = 25
+autorun = False
+
