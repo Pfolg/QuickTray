@@ -2,22 +2,12 @@
   <h2>QuickTray</h3>
 
 <img style="display: inline-block;" src="https://img.shields.io/github/watchers/Pfolg/QuickTray" alt="GitHub watchers" />
-  <a href="https://github.com/Pfolg/QuickTray/stargazers">
-  <img style="display: inline-block;" src="https://img.shields.io/github/stars/Pfolg/QuickTray" alt="GitHub stars" />
-  </a>
-  <a href="https://github.com/Pfolg/QuickTray/network">
-  <img style="display: inline-block;" src="https://img.shields.io/github/forks/Pfolg/QuickTray" alt="GitHub forks" />
-  </a>
-  <a href="https://github.com/Pfolg/QuickTray/issues">
-  <img style="display: inline-block;" src="https://img.shields.io/github/issues/Pfolg/QuickTray" alt="GitHub issues" />
-  </a>
-  <a href="https://github.com/Pfolg/QuickTray/pulls">
-  <img style="display: inline-block;" src="https://img.shields.io/github/issues-pr-closed-raw/Pfolg/QuickTray" alt="GitHub closed pull requests" />
-  </a>
+  <a href="https://github.com/Pfolg/QuickTray/stargazers"><img style="display: inline-block;" src="https://img.shields.io/github/stars/Pfolg/QuickTray" alt="GitHub stars" /></a>
+  <a href="https://github.com/Pfolg/QuickTray/network"><img style="display: inline-block;" src="https://img.shields.io/github/forks/Pfolg/QuickTray" alt="GitHub forks" /></a>
+  <a href="https://github.com/Pfolg/QuickTray/issues"><img style="display: inline-block;" src="https://img.shields.io/github/issues/Pfolg/QuickTray" alt="GitHub issues" /></a>
+  <a href="https://github.com/Pfolg/QuickTray/pulls"><img style="display: inline-block;" src="https://img.shields.io/github/issues-pr-closed-raw/Pfolg/QuickTray" alt="GitHub closed pull requests" /></a>
   <img style="display: inline-block;" src="https://img.shields.io/github/contributors/Pfolg/QuickTray" alt="GitHub contributors" />
-  <a href="https://github.com/Pfolg/QuickTray/blob/main/LICENSE">
-  <img style="display: inline-block;" src="https://img.shields.io/github/license/Pfolg/QuickTray" alt="GitHub license" />
-  </a>
+  <a href="https://github.com/Pfolg/QuickTray/blob/main/LICENSE"><img style="display: inline-block;" src="https://img.shields.io/github/license/Pfolg/QuickTray" alt="GitHub license" /></a>
   <img style="display: inline-block;" src="https://img.shields.io/github/repo-size/Pfolg/QuickTray" alt="GitHub repo size" />
 </div>
 
