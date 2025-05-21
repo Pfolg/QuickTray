@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['D:\\programing\\Python_projects\\QkStart2\\QuickTray.py'],
+    ['QuickTray.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -35,5 +35,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['D:\\programing\\Python_projects\\QkStart2\\assets\\luabackend.ico'],
+    icon=['assets\\luabackend.ico'],
 )

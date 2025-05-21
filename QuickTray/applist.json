@@ -3,25 +3,8 @@
     "type": [
       "app"
     ],
-    "name": "steam++",
-    "path": "D:/Program Files/Steam++/Steam++.exe",
-    "icon": "D:/Program Files/Steam++/Steam++.exe"
-  },
-  {
-    "type": [
-      "app"
-    ],
     "name": "InputTip",
     "path": "D:/software/portable/InputTip/InputTip.exe",
-    "icon": ""
-  },
-  {
-    "type": [
-      "scripts",
-      "star"
-    ],
-    "name": "Cmder.ahk",
-    "path": "D:/programing/AutoHotKey_scripts/cmder.ahk",
     "icon": ""
   },
   {
@@ -79,12 +62,6 @@
     "icon": ""
   },
   {
-    "type": "app",
-    "name": "localsend",
-    "path": "D:/Program Files/LocalSend/localsend_app.exe",
-    "icon": ""
-  },
-  {
     "type": "scripts",
     "name": "autoShutdownPro",
     "path": "D:/repos/Qkstar/plugins/autoShutdownPro.pyw",
@@ -97,21 +74,90 @@
     "icon": ""
   },
   {
-    "type": "",
-    "name": "",
-    "path": "",
+    "type": "link",
+    "name": "excalidraw",
+    "path": "https://excalidraw.com/",
     "icon": ""
   },
   {
-    "type": "",
-    "name": "",
-    "path": "",
+    "type": "scripts",
+    "name": "autoclick",
+    "path": "D:/programing/Python_projects/autoclick/autoclick.py",
     "icon": ""
   },
   {
-    "type": "",
-    "name": "",
-    "path": "",
-    "icon": ""
+    "type": [
+      "star",
+      "app"
+    ],
+    "name": "clock",
+    "icon": "D:/programing/Python_projects/时钟(useless)/QtClock/QC.png",
+    "path": "C:/Users/21460/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/MyApplication/clock.lnk"
+  },
+  {
+    "type": [
+      "app"
+    ],
+    "name": "LockWin",
+    "icon": "D:/programing/Python_projects/LockWindows/windows.png",
+    "path": "C:/Users/21460/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/MyApplication/MieDaMie.lnk"
+  },
+  {
+    "type": [
+      "star",
+      "app"
+    ],
+    "name": "stickies",
+    "icon": "",
+    "path": "C:/Program Files (x86)/Stickies/stickies.exe"
+  },
+  {
+    "type": [
+      "star",
+      "app"
+    ],
+    "name": "counter",
+    "icon": "D:/programing/Python_projects/ClickCount/logo.png",
+    "path": "C:/Users/21460/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/MyApplication/counter.lnk"
+  },
+  {
+    "type": [
+      "app"
+    ],
+    "name": "Stretchly",
+    "icon": "",
+    "path": "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Stretchly.lnk"
+  },
+  {
+    "type": [
+      "star",
+      "app"
+    ],
+    "name": "Ditto",
+    "icon": "",
+    "path": "C:/ProgramData/Microsoft/Windows/Start Menu/Programs/Ditto/Ditto.lnk"
+  },
+  {
+    "type": [
+      "scripts"
+    ],
+    "name": "WindowsWebController",
+    "icon": "",
+    "path": "D:/programing/Python_projects/Android-Win-command/StartSever.lnk"
+  },
+  {
+    "type":[
+      "scripts",
+      "app"
+    ],
+    "name":"alist",
+    "icon":"",
+    "path":"D:/software/portable/alist/alist.lnk"
+  },
+  {
+    "type":["app","star"],
+    "name":"WindowsWaterMarkPro",
+    "icon":"",
+    "path":"D:/programing/Python_projects/art_action/WindowsWaterMarkPro/main.lnk"
   }
 ]
