@@ -1,14 +1,24 @@
 <div align="center">
-  <h2>QKStart</h3>
+  <h2>QuickTray</h3>
 
-<img style="display: inline-block;" src="https://img.shields.io/github/watchers/Pfolg/QkStart" alt="GitHub watchers" />
-  <a href="https://github.com/Pfolg/QkStart/stargazers"><img style="display: inline-block;" src="https://img.shields.io/github/stars/Pfolg/QkStart" alt="GitHub stars" /></a>
-  <a href="https://github.com/Pfolg/QkStart/network"><img style="display: inline-block;" src="https://img.shields.io/github/forks/Pfolg/QkStart" alt="GitHub forks" /></a>
-  <a href="https://github.com/Pfolg/QkStart/issues"><img style="display: inline-block;" src="https://img.shields.io/github/issues/Pfolg/QkStart" alt="GitHub issues" /></a>
-  <a href="https://github.com/Pfolg/QkStart/pulls"><img style="display: inline-block;" src="https://img.shields.io/github/issues-pr-closed-raw/Pfolg/QkStart" alt="GitHub closed pull requests" /></a>
-  <img style="display: inline-block;" src="https://img.shields.io/github/contributors/Pfolg/QkStart" alt="GitHub contributors" />
-  <a href="https://github.com/Pfolg/QkStart/blob/main/LICENSE"><img style="display: inline-block;" src="https://img.shields.io/github/license/Pfolg/QkStart" alt="GitHub license" /></a>
-  <img style="display: inline-block;" src="https://img.shields.io/github/repo-size/Pfolg/QkStart" alt="GitHub repo size" />
+<img style="display: inline-block;" src="https://img.shields.io/github/watchers/Pfolg/QuickTray" alt="GitHub watchers" />
+  <a href="https://github.com/Pfolg/QuickTray/stargazers">
+  <img style="display: inline-block;" src="https://img.shields.io/github/stars/Pfolg/QuickTray" alt="GitHub stars" />
+  </a>
+  <a href="https://github.com/Pfolg/QuickTray/network">
+  <img style="display: inline-block;" src="https://img.shields.io/github/forks/Pfolg/QuickTray" alt="GitHub forks" />
+  </a>
+  <a href="https://github.com/Pfolg/QuickTray/issues">
+  <img style="display: inline-block;" src="https://img.shields.io/github/issues/Pfolg/QuickTray" alt="GitHub issues" />
+  </a>
+  <a href="https://github.com/Pfolg/QuickTray/pulls">
+  <img style="display: inline-block;" src="https://img.shields.io/github/issues-pr-closed-raw/Pfolg/QuickTray" alt="GitHub closed pull requests" />
+  </a>
+  <img style="display: inline-block;" src="https://img.shields.io/github/contributors/Pfolg/QuickTray" alt="GitHub contributors" />
+  <a href="https://github.com/Pfolg/QuickTray/blob/main/LICENSE">
+  <img style="display: inline-block;" src="https://img.shields.io/github/license/Pfolg/QuickTray" alt="GitHub license" />
+  </a>
+  <img style="display: inline-block;" src="https://img.shields.io/github/repo-size/Pfolg/QuickTray" alt="GitHub repo size" />
 </div>
 
 <br>
@@ -19,14 +29,14 @@
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Pfolg)](https://github.com/anuraghazra/github-readme-stats) -->
 
 # QuickTray
-QkStart已经使用Qt重写，目前正在懒惰开发中，如果想体验最新版，请前往https://github.com/Pfolg/QkStart/tree/QuickTray
+QkStart已经使用Qt重写，目前正在懒惰开发中，如果想体验最新版，请前往https://github.com/Pfolg/QuickTray/tree/QuickTray
 
 **快捷方式的替代：快捷托盘**
 
 如果你不喜欢桌面上放着一堆杂乱的快捷方式，又不想整理。但是呢，平时又有不得不用的工具。于是，我就用Python写了一个这样的工具，目的是为了解放桌面（其实还是练习Python）。
 
 
-[Download](https://github.com/Pfolg/QkStart/releases)
+[Download](https://github.com/Pfolg/QuickTray/releases)
 
 
 
