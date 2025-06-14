@@ -6,7 +6,6 @@ NAME main
 AUTHOR Pfolg
 TIME 2025/3/10 10:14
 """
-import configparser
 # 这个程序没有界面，只有托盘，界面--懒得做 2025/3/10
 import json
 import os.path
@@ -21,7 +20,7 @@ import psutil
 from PySide6 import QtWidgets, QtGui
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QIcon, QAction
-from PySide6.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QWidget, QLabel, QPushButton, QLineEdit, QMessageBox
+from PySide6.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QWidget, QLabel, QLineEdit
 
 from get_windows_menus import *
 
@@ -39,12 +38,12 @@ class MyQLineEdit(QLineEdit):
     def __init__(self):
         super().__init__()
         self.setStyleSheet("""
-               font-size: 24px;
-               padding: 15px;
-               border-radius: 60px;  # 加大圆角半径
-               background: rgba(255, 255, 255, 0.2);
-               border: 2px solid #c3daf8;                     
-       """)
+        font-size: 24px;
+        padding: 15px;
+        border-radius: 60px;  # 加大圆角半径
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid #c3daf8;
+        """)
 
     # 忽略关闭事件
     def closeEvent(self, event):
@@ -121,8 +120,8 @@ def textGetSet():
     except Exception:
         sentence = "未知问题，请求失败"
         """
-    if os.path.exists("lines.json"):
-        with open("lines.json", "r", encoding="utf-8") as file:
+    if os.path.exists(lines_file):
+        with open(lines_file, "r", encoding="utf-8") as file:
             content: list = json.load(file)
 
         sentence = content[random.randint(0, len(content))]
@@ -141,6 +140,12 @@ def set_QLabel(label: QLabel):
                 font-size: 18px;
                 font-weight: bold;
                 """)
+    # 定义字体
+    font = QtGui.QFont()
+    font.setFamily("Maple Mono NF CN")
+    font.setBold(True)  # 加粗
+    font.setItalic(True)  # 倾斜
+    label.setFont(font)
     # 换行
     label.setWordWrap(True)
     sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
@@ -155,17 +160,16 @@ def set_QLabel(label: QLabel):
 
 
 def td_autorun():
-    if eval(appConfig.get("infor").get("autorun")):
+    if appConfig.get("autorun"):
         tray.tray_icon.showMessage(
             "Quick Tray",
             "辅助自启动 True Running",
-            QIcon(appConfig.get("tray").get("logo")),
+            QIcon(appConfig.get("logo")),
         )
         battery = psutil.sensors_battery()
         plugged = battery.power_plugged
         if plugged:
             data = tray.readSetting()
-            # print(appConfig.get("infor").get("autorun"))
             for item in data:
                 if "star" in item.get("type"):
                     p = item.get("path")
@@ -175,14 +179,8 @@ def td_autorun():
         tray.tray_icon.showMessage(
             "Quick Tray",
             "辅助自启动 False",
-            QIcon(appConfig.get("tray").get("logo")),
+            QIcon(appConfig.get("logo")),
         )
-
-
-def open_ini():
-    if not os.path.exists("config.ini"):
-        setup_ini()
-    os.startfile("config.ini")
 
 
 def search_in_browser(box: QLineEdit):
@@ -231,16 +229,16 @@ class Tray:
             "path": "",
             "icon": "",
         }
-        if not os.path.exists("applist.json"):
-            with open("applist.json", "w", encoding="utf-8") as file:
+        if not os.path.exists(appList_file):
+            with open(appList_file, "w", encoding="utf-8") as file:
                 json.dump([_format], file, indent=4, ensure_ascii=False)
-        os.startfile("applist.json")
+        os.startfile(appList_file)
 
     @staticmethod
     def readSetting():
-        if os.path.exists("applist.json"):
-            with open("applist.json", "r", encoding="utf-8") as file:
-                data: [] = json.load(file)
+        if os.path.exists(appList_file):
+            with open(appList_file, "r", encoding="utf-8") as file:
+                data: list = json.load(file)
             if data:
                 return sorted(data, key=lambda x: x["name"].lower(), reverse=True)
             else:
@@ -254,10 +252,14 @@ class Tray:
             try:
                 if os.path.exists(p):
                     os.startfile(p)
-                if p.split(":")[0] in ["http", "https"]:
+                elif p.split(":")[0] in ["http", "https"]:
                     webbrowser.open(p)
-            except Exception:
-                self.tray_icon.showMessage("Error", "未能打开 {}".format(p))
+                elif not os.path.exists(p) and p.split(":") not in ["http", "https"]:
+                    self.tray_icon.showMessage("Warning", f"未能打开 {p}，因为文件不存在。")
+                else:
+                    self.tray_icon.showMessage("Warning", f"未能打开{p}，未知的问题。")
+            except Exception as _evt:
+                self.tray_icon.showMessage("Error", f"未能打开 {p}，详情：{_evt}")
 
     def set_windows_menu(self, father_menu: QMenu):
         # windows菜单内容
@@ -285,19 +287,19 @@ class Tray:
         menu_setting.setIcon(QIcon("assets/Tile_Folders/preferences/preferences-other.ico"))
         # 编辑json
         action_setting1 = QAction(parent=menu_setting)
-        action_setting1.setText("editing in json")
+        action_setting1.setText("Editing menus")
         action_setting1.triggered.connect(self.setting)
         # 编辑ini
         action_setting2 = QAction(parent=menu_setting)
-        action_setting2.setText("editing in ini")
-        action_setting2.triggered.connect(open_ini)
+        action_setting2.setText("Editing setting")
+        action_setting2.triggered.connect(open_basic_json)
         # 打开所在文件夹
         action_setting3 = QAction(parent=menu_setting)
-        action_setting3.setText("program\'s folder")
+        action_setting3.setText("Program\'s folder")
         action_setting3.triggered.connect(lambda: os.startfile(os.getcwd()))
         # 刷新菜单
         action_setting4 = QAction(parent=menu_setting)
-        action_setting4.setText("update menu")
+        action_setting4.setText("Update menus")
         action_setting4.triggered.connect(self._addActions)
 
         menu_setting.addActions([action_setting4, action_setting3, action_setting2, action_setting1])
@@ -322,7 +324,7 @@ class Tray:
         # 设定Windows应用菜单
         # self.set_windows_menu(father_menu=menu)
         # 设定子菜单
-        menus_infor = {
+        menus_info = {
             "star": "assets/Tile_Folders/preferences/preferences-desktop-default-applications.ico",
             "app": "assets/Tile_Folders/categories/applications-all.ico",
             "link": "assets/Tile_Folders/categories/applications-internet.ico",
@@ -334,16 +336,17 @@ class Tray:
             "link": "assets/solid/arrow-up-right-from-square.svg",
             "scripts": "assets/solid/code.svg"
         }
-        for i in menus_infor.keys():
+        _menu_info = {}
+        for i in menus_info.keys():
             # 定义子菜单
             this_menu = QMenu()
             # 设置子菜单名称
             this_menu.setTitle(i)
             # 设置图标
-            icon = menus_infor.get(i)
+            icon = menus_info.get(i)
             this_menu.setIcon(QIcon(icon))
             # 更新子菜单字典信息
-            menus_infor[i] = {
+            _menu_info[i] = {
                 "menu_icon": icon,
                 "menu": this_menu,
                 "children_icon": children_icon.get(i)
@@ -372,20 +375,20 @@ class Tray:
                     if action_path:
                         # 通过默认参数传递当前值 c，解决作用域问题——by DeepSeek
                         action.triggered.connect(lambda checked, p=action_path: self.openTarget(p))
-                    for m in menus_infor.keys():
+                    for m in _menu_info.keys():
                         if m in action_type:
-                            tm = menus_infor.get(m).get("menu")
+                            tm = _menu_info.get(m).get("menu")
                             action.setParent(tm)
                             tm.addAction(action)
-                            if menus_infor.get(m).get("children_icon"):
-                                action.setIcon(QIcon(menus_infor.get(m).get("children_icon")))
+                            if _menu_info.get(m).get("children_icon"):
+                                action.setIcon(QIcon(_menu_info.get(m).get("children_icon")))
                     if action_icon:
                         action.setIcon(QIcon(action_icon))
         self.tray_icon.setContextMenu(menu)
 
     def set_tray(self):
-        self.tray_icon.setToolTip(appConfig.get("tray").get("tip"))
-        self.tray_icon.setIcon(QIcon(appConfig.get("tray").get("logo")))
+        self.tray_icon.setToolTip(f"{appConfig.get('tip')} ver{appConfig.get('version')}")
+        self.tray_icon.setIcon(QIcon(appConfig.get("logo")))
 
 
 def single_instance(port: int):
@@ -403,62 +406,49 @@ def single_instance(port: int):
     return sock
 
 
-def read_ini():
-    this_config = {}
-    if os.path.exists("config.ini"):
-        config = configparser.ConfigParser()
-        config.read('config.ini')
-        # 读取所有配置
-        for section in config.sections():
-            this_section = {}
-            for key in config[section]:
-                this_section[key] = config[section][key]
-            this_config[section] = this_section
-        print(this_config)
-        if not this_config:
+def open_basic_json():
+    if not os.path.exists(config_file):
+        setup_config_json()
+    os.startfile(config_file)
+
+
+def read_config_json() -> dict:
+    if os.path.exists(config_file):
+        with open(config_file, "r", encoding="utf-8") as file1:
+            config: dict = json.load(file1)
+        if not config:
             print("your config is empty, rewrite……")
-            config["tray"] = {
-                "tip": "QkStart With WaterMark",
-                "logo": "assets/snowflake.png"
-            }
-            config["infor"] = {
-                "usecount": "0",
-                "port": "20082",
-                "autorun": False,
-            }
-            this_config = {
-                'tray': {'tip': 'QkStart With WaterMark', 'logo': 'assets/snowflake.png'},
-                'infor': {'usecount': '0', "port": "20082", "autorun": False, }}
-
-        config["infor"]["useCount"] = str(eval(config["infor"]["useCount"]) + 1)
-        with open('config.ini', 'w', encoding="utf-8") as file:
-            config.write(file)
-            print("config.ini Changed!")
-        return this_config
+            config = setup_config_json()
+        config["usecount"] += 1
+        with open(config_file, "w", encoding="utf-8") as file2:
+            json.dump(config, file2, indent=4, ensure_ascii=False)
+        print("config Changed!")
+        return config
     else:
-        setup_ini()
-        return {'tray': {'tip': 'QkStart With WaterMark', 'logo': 'assets/snowflake.png'},
-                'infor': {'usecount': '0', "port": "20082", "autorun": False, }}
+        return setup_config_json()
 
 
-def setup_ini():
-    config = configparser.ConfigParser()
-    config["tray"] = {
-        "tip": "QkStart With WaterMark",
-        "logo": "assets/snowflake.png"
+def setup_config_json() -> dict:
+    config = {
+        "tip": "Quick Tray",
+        "version": version,
+        "logo": "assets\luabackend.ico",
+        "usecount": 0,
+        "port": 20082,
+        "autorun": True,
     }
-    config["infor"] = {
-        "usecount": "0",
-        "port": "20082",
-        "autorun": False,
-    }
-    with open('config.ini', 'w', encoding="utf-8") as file:
-        config.write(file)
+    with open(config_file, "w", encoding="utf-8") as file:
+        json.dump(config, file, ensure_ascii=False, indent=4)
+    return config
 
 
 if __name__ == '__main__':
+    version = "1.11.0-25614"
+    config_file = "app_config/basic_config.json"
+    lines_file = "app_config/lines.json"
+    appList_file = "app_config/applist.json"
     # 读取配置
-    appConfig = read_ini()
+    appConfig = read_config_json()
 
     app = QApplication(sys.argv)
     tray = Tray()
@@ -488,5 +478,6 @@ if __name__ == '__main__':
     time2.start(5 * 60 * 1000)
 
     # 占用端口以识别单个实例
-    lock_socket = single_instance(eval(appConfig.get("infor").get("port")))
+    lock_socket = single_instance(appConfig.get("port"))
     sys.exit(app.exec())
+    # "pyinstaller.exe -F -w -i .\assets\luabackend.ico .\QuickTray.py"
