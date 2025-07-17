@@ -15,13 +15,13 @@ import sys
 import time
 import urllib.parse
 import webbrowser
+import pyperclip
 
 import psutil
 from PySide6 import QtWidgets, QtGui
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QIcon, QAction
 from PySide6.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QWidget, QLabel, QLineEdit
-
 from get_windows_menus import *
 
 
@@ -255,7 +255,9 @@ class Tray:
                 elif p.split(":")[0] in ["http", "https"]:
                     webbrowser.open(p)
                 elif not os.path.exists(p) and p.split(":") not in ["http", "https"]:
-                    self.tray_icon.showMessage("Warning", f"未能打开 {p}，因为文件不存在。")
+                    self.tray_icon.showMessage(
+                        "Warning",
+                        f"未能打开 {p}，因为文件不存在。\n尝试新建(应用内文件)或重新链接到正确路径(一般文件)！")
                 else:
                     self.tray_icon.showMessage("Warning", f"未能打开{p}，未知的问题。")
             except Exception as _evt:
@@ -284,7 +286,7 @@ class Tray:
         # 设定设置菜单
         menu_setting = QMenu()
         menu_setting.setTitle("set")
-        menu_setting.setIcon(QIcon("assets/Tile_Folders/preferences/preferences-other.ico"))
+        menu_setting.setIcon(QIcon("assets/preferences-other.ico"))
         # 编辑json
         action_setting1 = QAction(parent=menu_setting)
         action_setting1.setText("Editing menus")
@@ -292,7 +294,7 @@ class Tray:
         # 编辑ini
         action_setting2 = QAction(parent=menu_setting)
         action_setting2.setText("Editing setting")
-        action_setting2.triggered.connect(open_basic_json)
+        action_setting2.triggered.connect(lambda: self.openTarget(config_file))
         # 打开所在文件夹
         action_setting3 = QAction(parent=menu_setting)
         action_setting3.setText("Program\'s folder")
@@ -305,19 +307,32 @@ class Tray:
         menu_setting.addActions([action_setting4, action_setting3, action_setting2, action_setting1])
 
         action_quit = QAction(parent=menu)
-        action_quit.setIcon(QIcon("assets/solid/power-off.svg"))
+        action_quit.setIcon(QIcon("assets/power-off.svg"))
         action_quit.setText("quit")
         action_quit.triggered.connect(sys.exit)
-
-        action_updateText = QAction(parent=menu)
-        action_updateText.setIcon(QIcon("assets/solid/heading.svg"))
-        action_updateText.setText("update text")
+        # 文字标签菜单
+        menu_text = QMenu()
+        menu_text.setTitle("Text")
+        menu_text.setIcon(QIcon("assets/heading.svg"))
+        # 更新标签
+        action_updateText = QAction(parent=menu_text)
+        action_updateText.setText("Update")
         action_updateText.triggered.connect(textGetSet)
+        # 复制文本
+        action_copyText = QAction(menu_text)
+        action_copyText.setText("Copy")
+        action_copyText.triggered.connect(lambda: pyperclip.copy(TextLabel.text()))
+        # 编辑内容
+        action_editText = QAction(menu_text)
+        action_editText.setText("Edit")
+        action_editText.triggered.connect(lambda: self.openTarget(lines_file))
+
+        menu_text.addActions([action_updateText, action_copyText, action_editText])
 
         # 加入搜索动作
         action_search = QAction(parent=menu)
         action_search.setText("Search")
-        action_search.setIcon(QIcon("assets/Tile_Folders/preferences/preferences-desktop-search.ico"))
+        action_search.setIcon(QIcon("assets/preferences-desktop-search.ico"))
         action_search.triggered.connect(lambda: searchBox.show())
         menu.addAction(action_search)
         menu.addSeparator()
@@ -325,16 +340,16 @@ class Tray:
         # self.set_windows_menu(father_menu=menu)
         # 设定子菜单
         menus_info = {
-            "star": "assets/Tile_Folders/preferences/preferences-desktop-default-applications.ico",
-            "app": "assets/Tile_Folders/categories/applications-all.ico",
-            "link": "assets/Tile_Folders/categories/applications-internet.ico",
-            "scripts": "assets/Tile_Folders/mimetypes/application-vnd.nokia.xml.qt.resource.ico",
+            "star": "assets/preferences-desktop-default-applications.ico",
+            "app": "assets/applications-all.ico",
+            "link": "assets/applications-internet.ico",
+            "scripts": "assets/application-vnd.nokia.xml.qt.resource.ico",
         }
         children_icon = {
             "star": None,
             "app": None,
-            "link": "assets/solid/arrow-up-right-from-square.svg",
-            "scripts": "assets/solid/code.svg"
+            "link": "assets/arrow-up-right-from-square.svg",
+            "scripts": "assets/code.svg"
         }
         _menu_info = {}
         for i in menus_info.keys():
@@ -358,8 +373,10 @@ class Tray:
         menu.addSeparator()
         # 添加设置菜单
         menu.addMenu(menu_setting)
+        # 添加文字标签菜单
+        menu.addMenu(menu_text)
         # 添加基本动作
-        menu.addActions([action_updateText, action_quit])
+        menu.addActions([action_quit])
         data = self.readSetting()
         # 排序
         data.reverse()
@@ -387,7 +404,7 @@ class Tray:
         self.tray_icon.setContextMenu(menu)
 
     def set_tray(self):
-        self.tray_icon.setToolTip(f"{appConfig.get('tip')} ver{appConfig.get('version')}")
+        self.tray_icon.setToolTip(f"{appConfig.get('tip')}\nver{version}")
         self.tray_icon.setIcon(QIcon(appConfig.get("logo")))
 
 
@@ -406,12 +423,6 @@ def single_instance(port: int):
     return sock
 
 
-def open_basic_json():
-    if not os.path.exists(config_file):
-        setup_config_json()
-    os.startfile(config_file)
-
-
 def read_config_json() -> dict:
     if os.path.exists(config_file):
         with open(config_file, "r", encoding="utf-8") as file1:
@@ -420,6 +431,7 @@ def read_config_json() -> dict:
             print("your config is empty, rewrite……")
             config = setup_config_json()
         config["usecount"] += 1
+        config["version"] = version
         with open(config_file, "w", encoding="utf-8") as file2:
             json.dump(config, file2, indent=4, ensure_ascii=False)
         print("config Changed!")
@@ -443,10 +455,15 @@ def setup_config_json() -> dict:
 
 
 if __name__ == '__main__':
-    version = "1.11.0-25614"
-    config_file = "app_config/basic_config.json"
-    lines_file = "app_config/lines.json"
-    appList_file = "app_config/applist.json"
+    version = "1.11.1-25617"
+    user_folder = "app_config"
+    config_file = f"{user_folder}\\basic_config.json"
+    lines_file = f"{user_folder}\\lines.json"
+    appList_file = f"{user_folder}\\applist.json"
+    if not os.path.exists(user_folder):
+        os.mkdir(user_folder)
+    # 是否正在测试
+    isTest = False
     # 读取配置
     appConfig = read_config_json()
 
@@ -470,14 +487,14 @@ if __name__ == '__main__':
     time1 = QTimer()
     time1.timeout.connect(td_autorun)
     time1.setSingleShot(True)  # 单次触发
-    time1.start(3000)
 
     time2 = QTimer()
     time2.timeout.connect(textGetSet)
-    textGetSet()  # 手动调用
-    time2.start(5 * 60 * 1000)
-
-    # 占用端口以识别单个实例
-    lock_socket = single_instance(appConfig.get("port"))
+    if not isTest:
+        time1.start(3000)
+        textGetSet()  # 手动调用
+        time2.start(5 * 60 * 1000)
+        # 占用端口以识别单个实例
+        lock_socket = single_instance(appConfig.get("port"))
     sys.exit(app.exec())
     # "pyinstaller.exe -F -w -i .\assets\luabackend.ico .\QuickTray.py"

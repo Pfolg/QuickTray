@@ -146,6 +146,22 @@
     "path": "D:/programing/Python_projects/Android-Win-command/StartSever.lnk"
   },
   {
+    "type": [
+      "scripts"
+    ],
+    "name": "MarkdownConverter",
+    "icon": "",
+    "path": "D:/programing/Python_projects/MarkdownConverter/MarkdownConverter.lnk"
+  },
+  {
+    "type": [
+      "scripts"
+    ],
+    "name": "EmojiMaker",
+    "icon": "",
+    "path": "D:/programing/Python_projects/art_action/EmojiMaker/EmojiMaker.lnk"
+  },
+  {
     "type":[
       "scripts",
       "app"
@@ -156,8 +172,20 @@
   },
   {
     "type":["app","star"],
-    "name":"WindowsWaterMark",
+    "name":"Watermelon",
     "icon":"",
-    "path":"D:/programing/Python_projects/art_action/WindowsWaterMark/WindowsWaterMark.lnk"
+    "path":"D:/programing/Python_projects/art_action/WindowsWaterMark/Watermelon.lnk"
+  },
+  {
+    "type":["app"],
+    "name":"MouseTracker",
+    "icon":"",
+    "path":"D:/programing/Python_projects/MouseTracker/MouseTracker.lnk"
+  },
+  {
+    "type":["app","scripts"],
+    "name":"AnimationsRecorder",
+    "icon":"",
+    "path":"D:/programing/Python_projects/AnimationsRecorder/AnimationsRecorder.lnk"
   }
 ]
