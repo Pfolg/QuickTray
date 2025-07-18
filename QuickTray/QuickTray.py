@@ -16,13 +16,14 @@ import time
 import urllib.parse
 import webbrowser
 import pyperclip
-
 import psutil
 from PySide6 import QtWidgets, QtGui
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QIcon, QAction
-from PySide6.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QWidget, QLabel, QLineEdit
+from PySide6.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QWidget, QLabel, QLineEdit, QMessageBox
 from get_windows_menus import *
+from QuickTrayExtend import EWidget
+from check_version import check_version_match
 
 
 class MyQWidget(QWidget):
@@ -161,11 +162,6 @@ def set_QLabel(label: QLabel):
 
 def td_autorun():
     if appConfig.get("autorun"):
-        tray.tray_icon.showMessage(
-            "Quick Tray",
-            "辅助自启动 True Running",
-            QIcon(appConfig.get("logo")),
-        )
         battery = psutil.sensors_battery()
         plugged = battery.power_plugged
         if plugged:
@@ -212,6 +208,20 @@ def set_searchBox(box: QLineEdit):
     # 初始不可见
     box.setVisible(False)
     box.returnPressed.connect(lambda: search_in_browser(box))
+
+
+def check_update():
+    b, flag = check_version_match(version)
+    if b:
+        tray.tray_icon.showMessage(
+            "Quick Tray",
+            flag,
+        )
+    else:
+        tray.tray_icon.showMessage(
+            "Quick Tray",
+            flag,
+        )
 
 
 class Tray:
@@ -285,8 +295,14 @@ class Tray:
         menu = QMenu()
         # 设定设置菜单
         menu_setting = QMenu()
-        menu_setting.setTitle("set")
+        menu_setting.setTitle("Setting")
         menu_setting.setIcon(QIcon("assets/preferences-other.ico"))
+
+        # 设定窗口
+        action_setting0 = QAction(parent=menu_setting)
+        action_setting0.setText("Setting Window")
+        action_setting0.triggered.connect(lambda: EWidget().show())
+
         # 编辑json
         action_setting1 = QAction(parent=menu_setting)
         action_setting1.setText("Editing menus")
@@ -304,12 +320,27 @@ class Tray:
         action_setting4.setText("Update menus")
         action_setting4.triggered.connect(self._addActions)
 
-        menu_setting.addActions([action_setting4, action_setting3, action_setting2, action_setting1])
+        menu_setting.addActions([action_setting0, action_setting4, action_setting3, action_setting2, action_setting1])
 
         action_quit = QAction(parent=menu)
         action_quit.setIcon(QIcon("assets/power-off.svg"))
-        action_quit.setText("quit")
+        action_quit.setText("Quit")
         action_quit.triggered.connect(sys.exit)
+
+        # 关于：官网，更新
+        menu_about = QMenu()
+        menu_about.setTitle("About")
+        menu_about.setIcon(QIcon("assets/circle-question.svg"))
+        action_update = QAction(parent=menu)
+        action_update.setIcon(QIcon("assets/circle-exclamation.svg"))
+        action_update.setText("Check update")
+        action_update.triggered.connect(check_update)
+        action_website = QAction(parent=menu)
+        action_website.setIcon(QIcon("assets/github.svg"))
+        action_website.setText("GitHub")
+        action_website.triggered.connect(lambda: self.openTarget(website))
+        menu_about.addActions([action_website, action_update])
+
         # 文字标签菜单
         menu_text = QMenu()
         menu_text.setTitle("Text")
@@ -375,6 +406,8 @@ class Tray:
         menu.addMenu(menu_setting)
         # 添加文字标签菜单
         menu.addMenu(menu_text)
+        # 添加关于菜单
+        menu.addMenu(menu_about)
         # 添加基本动作
         menu.addActions([action_quit])
         data = self.readSetting()
@@ -404,7 +437,9 @@ class Tray:
         self.tray_icon.setContextMenu(menu)
 
     def set_tray(self):
-        self.tray_icon.setToolTip(f"{appConfig.get('tip')}\nver{version}")
+        item_num = len(self.readSetting())
+        help_run = "on" if appConfig.get("autorun") else "off"
+        self.tray_icon.setToolTip(f"{appConfig.get('tip')}\n{version}\nItems: {item_num}\nAutorun: {help_run}")
         self.tray_icon.setIcon(QIcon(appConfig.get("logo")))
 
 
@@ -455,7 +490,8 @@ def setup_config_json() -> dict:
 
 
 if __name__ == '__main__':
-    version = "1.11.1-25617"
+    version = "ver1.11.2-25718"
+    website = "https://github.com/Pfolg/QuickTray"
     user_folder = "app_config"
     config_file = f"{user_folder}\\basic_config.json"
     lines_file = f"{user_folder}\\lines.json"
@@ -468,6 +504,7 @@ if __name__ == '__main__':
     appConfig = read_config_json()
 
     app = QApplication(sys.argv)
+    app.setWindowIcon(QIcon(appConfig.get("logo")))
     tray = Tray()
 
     # 右下角标签

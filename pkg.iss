@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "QuickTray"
-#define MyAppVersion "1.11.1-25617"
+#define MyAppVersion "1.11.2-25718"
 #define MyAppPublisher "https://github.com/Pfolg"
 #define MyAppURL "https://github.com/Pfolg/QuickTray"
 #define MyAppExeName "QuickTray.exe"
@@ -39,7 +39,7 @@ InfoAfterFile=D:\repos\QuickTray\QuickTray\README.md
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputDir=D:\download
-OutputBaseFilename=QuickTray_Win64_ver1.11.1-25617
+OutputBaseFilename=QuickTray_Win64_ver1.11.2-25718
 SetupIconFile=D:\repos\QuickTray\QuickTray\QuickTray\assets\luabackend.ico
 SolidCompression=yes
 WizardStyle=modern

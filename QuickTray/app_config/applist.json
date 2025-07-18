@@ -162,30 +162,38 @@
     "path": "D:/programing/Python_projects/art_action/EmojiMaker/EmojiMaker.lnk"
   },
   {
-    "type":[
+    "type": [
       "scripts",
       "app"
     ],
-    "name":"alist",
-    "icon":"",
-    "path":"D:/software/portable/alist/alist.lnk"
+    "name": "alist",
+    "icon": "",
+    "path": "D:/software/portable/alist/alist.lnk"
   },
   {
-    "type":["app","star"],
-    "name":"Watermelon",
-    "icon":"",
-    "path":"D:/programing/Python_projects/art_action/WindowsWaterMark/Watermelon.lnk"
+    "type": [
+      "app",
+      "star"
+    ],
+    "name": "Watermelon",
+    "icon": "",
+    "path": "D:/programing/Python_projects/art_action/WindowsWaterMark/Watermelon.lnk"
   },
   {
-    "type":["app"],
-    "name":"MouseTracker",
-    "icon":"",
-    "path":"D:/programing/Python_projects/MouseTracker/MouseTracker.lnk"
+    "type": [
+      "app"
+    ],
+    "name": "MouseTracker",
+    "icon": "",
+    "path": "D:/programing/Python_projects/MouseTracker/MouseTracker.lnk"
   },
   {
-    "type":["app","scripts"],
-    "name":"AnimationsRecorder",
-    "icon":"",
-    "path":"D:/programing/Python_projects/AnimationsRecorder/AnimationsRecorder.lnk"
+    "type": [
+      "app",
+      "scripts"
+    ],
+    "name": "AnimationsRecorder",
+    "icon": "",
+    "path": "D:/programing/Python_projects/AnimationsRecorder/AnimationsRecorder.lnk"
   }
 ]
