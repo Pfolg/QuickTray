@@ -6,7 +6,6 @@ NAME main
 AUTHOR Pfolg
 TIME 2025/3/10 10:14
 """
-# 这个程序没有界面，只有托盘，界面--懒得做 2025/3/10
 import json
 import os.path
 import random
@@ -20,10 +19,11 @@ import psutil
 from PySide6 import QtWidgets, QtGui
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QIcon, QAction
-from PySide6.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QWidget, QLabel, QLineEdit, QMessageBox
+from PySide6.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QWidget, QLabel, QLineEdit
 from get_windows_menus import *
 from QuickTrayExtend import EWidget
 from check_version import check_version_match
+from string_data import Data
 
 
 class MyQWidget(QWidget):
@@ -84,13 +84,13 @@ def set_QWidget(window: QWidget):
                 font-size: 12px;
                 """)
     font = QtGui.QFont()
-    font.setFamily("Microsoft YaHei UI")
+    font.setFamily(Data.font_myu)
     font.setBold(False)
     label1.setFont(font)
     label2.setFont(font)
     # 设置文本
-    label1.setText("Windows Hacked")
-    label2.setText("Go to http://127.0.0.1/ to pay the ransom.")
+    label1.setText(Data.watermark1)
+    label2.setText(Data.watermark2)
     # 启用透明度
     window.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, True)
     # 窗口顶置，去标题栏，去除任务栏图标，鼠标穿透
@@ -127,7 +127,7 @@ def textGetSet():
 
         sentence = content[random.randint(0, len(content))]
     else:
-        sentence = "Wish you hava a good day!"
+        sentence = Data.default_sentence
     print(sentence)
     TextLabel.setText(sentence)
 
@@ -143,7 +143,7 @@ def set_QLabel(label: QLabel):
                 """)
     # 定义字体
     font = QtGui.QFont()
-    font.setFamily("Maple Mono NF CN")
+    font.setFamily(Data.font_mmnc)
     font.setBold(True)  # 加粗
     font.setItalic(True)  # 倾斜
     label.setFont(font)
@@ -161,22 +161,16 @@ def set_QLabel(label: QLabel):
 
 
 def td_autorun():
-    if appConfig.get("autorun"):
+    if appConfig.get(Data.string_autorun):
         battery = psutil.sensors_battery()
         plugged = battery.power_plugged
         if plugged:
             data = tray.readSetting()
             for item in data:
-                if "star" in item.get("type"):
-                    p = item.get("path")
+                if Data.string_star in item.get(Data.string_type):
+                    p = item.get(Data.string_path)
                     tray.openTarget(p)
                     time.sleep(3)
-    else:
-        tray.tray_icon.showMessage(
-            "Quick Tray",
-            "辅助自启动 False",
-            QIcon(appConfig.get("logo")),
-        )
 
 
 def search_in_browser(box: QLineEdit):
@@ -184,7 +178,7 @@ def search_in_browser(box: QLineEdit):
     query = box.text()
     if query and visible:
         # 使用必应中国作为搜索引擎
-        bing = "https://cn.bing.com/search?q={}"
+        bing = Data.bing
         # 使用bing搜索指定的查询
         search_url = bing.format(urllib.parse.quote(query))
         # 打开默认浏览器并导航到搜索URL
@@ -204,7 +198,7 @@ def set_searchBox(box: QLineEdit):
     font.setPointSize(18)
     box.setFont(font)
     # 提醒词
-    box.setPlaceholderText("Enter...")
+    box.setPlaceholderText(Data.input_placeholder)
     # 初始不可见
     box.setVisible(False)
     box.returnPressed.connect(lambda: search_in_browser(box))
@@ -214,12 +208,12 @@ def check_update():
     b, flag = check_version_match(version)
     if b:
         tray.tray_icon.showMessage(
-            "Quick Tray",
+            Data.app_name,
             flag,
         )
     else:
         tray.tray_icon.showMessage(
-            "Quick Tray",
+            Data.app_name,
             flag,
         )
 
@@ -234,10 +228,10 @@ class Tray:
     @staticmethod
     def setting():
         _format = {
-            "type": "",
-            "name": "",
-            "path": "",
-            "icon": "",
+            Data.string_type: "",
+            Data.string_name: "",
+            Data.string_path: "",
+            Data.string_icon: "",
         }
         if not os.path.exists(appList_file):
             with open(appList_file, "w", encoding="utf-8") as file:
@@ -250,7 +244,7 @@ class Tray:
             with open(appList_file, "r", encoding="utf-8") as file:
                 data: list = json.load(file)
             if data:
-                return sorted(data, key=lambda x: x["name"].lower(), reverse=True)
+                return sorted(data, key=lambda x: x[Data.string_name].lower(), reverse=True)
             else:
                 return []
         else:
@@ -262,24 +256,24 @@ class Tray:
             try:
                 if os.path.exists(p):
                     os.startfile(p)
-                elif p.split(":")[0] in ["http", "https"]:
+                elif p.split(":")[0] in Data.keyword_web:
                     webbrowser.open(p)
                 elif not os.path.exists(p) and p.split(":") not in ["http", "https"]:
                     self.tray_icon.showMessage(
                         "Warning",
-                        f"未能打开 {p}，因为文件不存在。\n尝试新建(应用内文件)或重新链接到正确路径(一般文件)！")
+                        Data.failed_open_file + p)
                 else:
-                    self.tray_icon.showMessage("Warning", f"未能打开{p}，未知的问题。")
+                    self.tray_icon.showMessage("Warning", Data.unknown_error + p)
             except Exception as _evt:
-                self.tray_icon.showMessage("Error", f"未能打开 {p}，详情：{_evt}")
+                self.tray_icon.showMessage("Error", Data.unable_open_file + p + str(_evt))
 
     def set_windows_menu(self, father_menu: QMenu):
         # windows菜单内容
-        target_dir = os.path.expandvars(r'%ProgramData%\Microsoft\Windows\Start Menu\Programs')
+        target_dir = os.path.expandvars(Data.Programs_folder)
         windows_menus = get_lnk_classified_dict(target_dir)
         menu_windows = QMenu(parent=father_menu)
-        menu_windows.setTitle("Windows Menu")
-        menu_windows.setIcon(QIcon("assets/windows.png"))
+        menu_windows.setTitle(Data.Windows_Menu)
+        menu_windows.setIcon(QIcon(Data.picture_windows))
         for key in windows_menus:
             this_menu = QMenu()
             this_menu.setTitle(key)
@@ -295,75 +289,75 @@ class Tray:
         menu = QMenu()
         # 设定设置菜单
         menu_setting = QMenu()
-        menu_setting.setTitle("Setting")
-        menu_setting.setIcon(QIcon("assets/preferences-other.ico"))
+        menu_setting.setTitle(Data.string_setting)
+        menu_setting.setIcon(QIcon(Data.picture_preferences_other))
 
         # 设定窗口
         action_setting0 = QAction(parent=menu_setting)
-        action_setting0.setText("Setting Window")
+        action_setting0.setText(Data.string_settingw)
         action_setting0.triggered.connect(lambda: EWidget().show())
 
         # 编辑json
         action_setting1 = QAction(parent=menu_setting)
-        action_setting1.setText("Editing menus")
+        action_setting1.setText(Data.string_e_menu)
         action_setting1.triggered.connect(self.setting)
         # 编辑ini
         action_setting2 = QAction(parent=menu_setting)
-        action_setting2.setText("Editing setting")
+        action_setting2.setText(Data.string_e_setting)
         action_setting2.triggered.connect(lambda: self.openTarget(config_file))
         # 打开所在文件夹
         action_setting3 = QAction(parent=menu_setting)
-        action_setting3.setText("Program\'s folder")
+        action_setting3.setText(Data.string_folder_program)
         action_setting3.triggered.connect(lambda: os.startfile(os.getcwd()))
         # 刷新菜单
         action_setting4 = QAction(parent=menu_setting)
-        action_setting4.setText("Update menus")
+        action_setting4.setText(Data.string_u_menu)
         action_setting4.triggered.connect(self._addActions)
 
         menu_setting.addActions([action_setting0, action_setting4, action_setting3, action_setting2, action_setting1])
 
         action_quit = QAction(parent=menu)
-        action_quit.setIcon(QIcon("assets/power-off.svg"))
-        action_quit.setText("Quit")
+        action_quit.setIcon(QIcon(Data.picture_power_off))
+        action_quit.setText(Data.string_quit)
         action_quit.triggered.connect(sys.exit)
 
         # 关于：官网，更新
         menu_about = QMenu()
-        menu_about.setTitle("About")
-        menu_about.setIcon(QIcon("assets/circle-question.svg"))
+        menu_about.setTitle(Data.string_about)
+        menu_about.setIcon(QIcon(Data.picture_circle_question))
         action_update = QAction(parent=menu)
-        action_update.setIcon(QIcon("assets/circle-exclamation.svg"))
-        action_update.setText("Check update")
+        action_update.setIcon(QIcon(Data.picture_circle_exclamation))
+        action_update.setText(Data.string_c_update)
         action_update.triggered.connect(check_update)
         action_website = QAction(parent=menu)
-        action_website.setIcon(QIcon("assets/github.svg"))
-        action_website.setText("GitHub")
+        action_website.setIcon(QIcon(Data.picture_github))
+        action_website.setText(Data.string_github)
         action_website.triggered.connect(lambda: self.openTarget(website))
         menu_about.addActions([action_website, action_update])
 
         # 文字标签菜单
         menu_text = QMenu()
-        menu_text.setTitle("Text")
-        menu_text.setIcon(QIcon("assets/heading.svg"))
+        menu_text.setTitle(Data.string_text)
+        menu_text.setIcon(QIcon(Data.picture_heading))
         # 更新标签
         action_updateText = QAction(parent=menu_text)
-        action_updateText.setText("Update")
+        action_updateText.setText(Data.string_update)
         action_updateText.triggered.connect(textGetSet)
         # 复制文本
         action_copyText = QAction(menu_text)
-        action_copyText.setText("Copy")
+        action_copyText.setText(Data.string_copy)
         action_copyText.triggered.connect(lambda: pyperclip.copy(TextLabel.text()))
         # 编辑内容
         action_editText = QAction(menu_text)
-        action_editText.setText("Edit")
+        action_editText.setText(Data.string_edit)
         action_editText.triggered.connect(lambda: self.openTarget(lines_file))
 
         menu_text.addActions([action_updateText, action_copyText, action_editText])
 
         # 加入搜索动作
         action_search = QAction(parent=menu)
-        action_search.setText("Search")
-        action_search.setIcon(QIcon("assets/preferences-desktop-search.ico"))
+        action_search.setText(Data.string_search)
+        action_search.setIcon(QIcon(Data.picture_search))
         action_search.triggered.connect(lambda: searchBox.show())
         menu.addAction(action_search)
         menu.addSeparator()
@@ -371,16 +365,16 @@ class Tray:
         # self.set_windows_menu(father_menu=menu)
         # 设定子菜单
         menus_info = {
-            "star": "assets/preferences-desktop-default-applications.ico",
-            "app": "assets/applications-all.ico",
-            "link": "assets/applications-internet.ico",
-            "scripts": "assets/application-vnd.nokia.xml.qt.resource.ico",
+            Data.string_star: Data.picture_star,
+            Data.string_app: Data.picture_app,
+            Data.string_link: Data.picture_link,
+            Data.string_scripts: Data.picture_scripts,
         }
         children_icon = {
-            "star": None,
-            "app": None,
-            "link": "assets/arrow-up-right-from-square.svg",
-            "scripts": "assets/code.svg"
+            Data.string_star: Data.picture_c_star,
+            Data.string_app: Data.picture_c_app,
+            Data.string_link: Data.picture_c_link,
+            Data.string_scripts: Data.picture_c_scripts
         }
         _menu_info = {}
         for i in menus_info.keys():
@@ -393,9 +387,9 @@ class Tray:
             this_menu.setIcon(QIcon(icon))
             # 更新子菜单字典信息
             _menu_info[i] = {
-                "menu_icon": icon,
-                "menu": this_menu,
-                "children_icon": children_icon.get(i)
+                Data.string_menu_icon: icon,
+                Data.string_menu: this_menu,
+                Data.string_children_icon: children_icon.get(i)
             }
             # 加入主菜单中
             menu.addMenu(this_menu)
@@ -416,8 +410,8 @@ class Tray:
         if data:
             for i in data:
                 action = QAction()
-                action_type, action_name, action_path, action_icon = i.get("type"), i.get("name"), i.get("path"), i.get(
-                    "icon")
+                action_type, action_name, action_path, action_icon = i.get(Data.string_type), i.get(
+                    Data.string_name), i.get(Data.string_path), i.get(Data.string_icon)
                 if action_type and action_name and action_path:
                     # print(action_name, action_path, action_icon)
                     if action_name:
@@ -427,28 +421,28 @@ class Tray:
                         action.triggered.connect(lambda checked, p=action_path: self.openTarget(p))
                     for m in _menu_info.keys():
                         if m in action_type:
-                            tm = _menu_info.get(m).get("menu")
+                            tm = _menu_info.get(m).get(Data.string_menu)
                             action.setParent(tm)
                             tm.addAction(action)
-                            if _menu_info.get(m).get("children_icon"):
-                                action.setIcon(QIcon(_menu_info.get(m).get("children_icon")))
+                            if _menu_info.get(m).get(Data.string_children_icon):
+                                action.setIcon(QIcon(_menu_info.get(m).get(Data.string_children_icon)))
                     if action_icon:
                         action.setIcon(QIcon(action_icon))
         self.tray_icon.setContextMenu(menu)
 
     def set_tray(self):
         item_num = len(self.readSetting())
-        help_run = "on" if appConfig.get("autorun") else "off"
-        self.tray_icon.setToolTip(f"{appConfig.get('tip')}\n{version}\nItems: {item_num}\nAutorun: {help_run}")
-        self.tray_icon.setIcon(QIcon(appConfig.get("logo")))
+        help_run = Data.string_on if appConfig.get(Data.string_autorun) else Data.string_off
+        self.tray_icon.setToolTip(
+            f"{appConfig.get(Data.str_tip)}\n{version}\n{Data.s_tool_Items} {item_num}\n{Data.string_autorun}: {help_run}")
+        self.tray_icon.setIcon(QIcon(appConfig.get(Data.str_logo)))
 
 
 def single_instance(port: int):
-    print("checking port")
     try:
         # 选择一个不常用的端口
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.bind(("127.0.0.1", port))
+        sock.bind((Data.local_link, port))
     except socket.error:
         print("Another simple is running, quit")
         tray.tray_icon.showMessage(
@@ -465,8 +459,8 @@ def read_config_json() -> dict:
         if not config:
             print("your config is empty, rewrite……")
             config = setup_config_json()
-        config["usecount"] += 1
-        config["version"] = version
+        config[Data.str_usecount] += 1
+        config[Data.str_version] = version
         with open(config_file, "w", encoding="utf-8") as file2:
             json.dump(config, file2, indent=4, ensure_ascii=False)
         print("config Changed!")
@@ -477,12 +471,12 @@ def read_config_json() -> dict:
 
 def setup_config_json() -> dict:
     config = {
-        "tip": "Quick Tray",
-        "version": version,
-        "logo": "assets\luabackend.ico",
-        "usecount": 0,
-        "port": 20082,
-        "autorun": True,
+        Data.str_tip: Data.app_name,
+        Data.str_version: version,
+        Data.str_logo: Data.picture_luabackend,
+        Data.str_usecount: 0,
+        Data.str_port: Data.port,
+        Data.string_autorun: Data.isautorun,
     }
     with open(config_file, "w", encoding="utf-8") as file:
         json.dump(config, file, ensure_ascii=False, indent=4)
@@ -490,12 +484,12 @@ def setup_config_json() -> dict:
 
 
 if __name__ == '__main__':
-    version = "ver1.11.2-25718"
-    website = "https://github.com/Pfolg/QuickTray"
-    user_folder = "app_config"
-    config_file = f"{user_folder}\\basic_config.json"
-    lines_file = f"{user_folder}\\lines.json"
-    appList_file = f"{user_folder}\\applist.json"
+    version = Data.version
+    website = Data.website
+    user_folder = Data.user_folder
+    config_file = Data.config_file
+    lines_file = Data.lines_file
+    appList_file = Data.appList_file
     if not os.path.exists(user_folder):
         os.mkdir(user_folder)
     # 是否正在测试
@@ -504,7 +498,7 @@ if __name__ == '__main__':
     appConfig = read_config_json()
 
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon(appConfig.get("logo")))
+    app.setWindowIcon(QIcon(appConfig.get(Data.str_logo)))
     tray = Tray()
 
     # 右下角标签
@@ -519,7 +513,7 @@ if __name__ == '__main__':
     TextLabel = MyQLabel()
     set_QLabel(TextLabel)
     TextLabel.show()
-    TextLabel.setText("正在初始化……")
+    TextLabel.setText(Data.default_sentence2)
     # 设置线程
     time1 = QTimer()
     time1.timeout.connect(td_autorun)
@@ -528,10 +522,10 @@ if __name__ == '__main__':
     time2 = QTimer()
     time2.timeout.connect(textGetSet)
     if not isTest:
-        time1.start(3000)
+        time1.start(Data.timer1_timeout)
         textGetSet()  # 手动调用
-        time2.start(5 * 60 * 1000)
+        time2.start(Data.timer2_timeout)
         # 占用端口以识别单个实例
-        lock_socket = single_instance(appConfig.get("port"))
+        lock_socket = single_instance(appConfig.get(Data.str_port))
     sys.exit(app.exec())
     # "pyinstaller.exe -F -w -i .\assets\luabackend.ico .\QuickTray.py"
