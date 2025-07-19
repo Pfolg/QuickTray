@@ -6,9 +6,10 @@
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/Pfolg/QuickTray) ![GitHub Release](https://img.shields.io/github/v/release/Pfolg/QuickTray) ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Pfolg/QuickTray/total)
 
- [特点](#特点) | [下载](#下载) | [声明](#声明) | [LICENSE](LICENSE)
+ [特点](#特点) | [下载](#下载) | [声明](#声明) | [LICENSE](LICENSE) 
 
-基于 PySide6 的系统托盘工具应用，主要提供快速启动、文本展示和系统管理功能
+
+基于 PySide6 的系统托盘工具应用，主要提供快速启动、文本展示功能。
 
 </div>
 
@@ -98,13 +99,18 @@ C --> H[进入主循环]
 # 下载
 ![GitHub Release](https://img.shields.io/github/v/release/Pfolg/QuickTray)
 
-https://github.com/Pfolg/QuickTray/releases
+| Windows | [releases](https://github.com/Pfolg/QuickTray/releases) |
+| :-----: | :-----------------------------------------------------: |
 
 或者
 
 克隆此仓库到本地使用源码运行
 
 # 声明
+
+本程序绝不会收集用户信息（我也做不到），源码可查。
+
+若在使用中发现任何问题，还请不吝提Issue，若有个人想法的开发者，欢迎拉取！
 
 感谢所有本程序涉及的第三方库及Python语言开发者们，未能一一致谢，抱歉！
 
