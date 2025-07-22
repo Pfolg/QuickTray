@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# 将 UI 文件识别为 Python
+*.ui linguist-language=Python
