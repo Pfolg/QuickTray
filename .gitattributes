@@ -63,4 +63,5 @@
 #*.RTF   diff=astextplain
 
 # 主观修改
-*.ui linguist-language=XML
+# 将 UI 文件识别为 Python
+*.ui linguist-language=Python
