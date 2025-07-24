@@ -65,3 +65,4 @@
 # 主观修改
 # 将 UI 文件识别为 Python
 *.ui linguist-language=Python
+*.json linguist-language=Python
