@@ -4,7 +4,7 @@
 
 ![GitHub License](https://img.shields.io/github/license/Pfolg/QuickTray) ![GitHub repo size](https://img.shields.io/github/repo-size/Pfolg/QuickTray) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Pfolg/QuickTray) ![GitHub last commit](https://img.shields.io/github/last-commit/Pfolg/QuickTray) ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/Pfolg/QuickTray) ![Static Badge](https://img.shields.io/badge/Windows-blue) ![Static Badge](https://img.shields.io/badge/Python3.11-green)
 
-![GitHub Repo stars](https://img.shields.io/github/stars/Pfolg/QuickTray) ![GitHub Release](https://img.shields.io/github/v/release/Pfolg/QuickTray) ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Pfolg/QuickTray/total)
+![GitHub Repo stars](https://img.shields.io/github/stars/Pfolg/QuickTray) ![GitHub Release](https://img.shields.io/github/v/release/Pfolg/QuickTray) <img src="https://visitor-badge.laobi.icu/badge?page_id=Pfolg.QuickTray" /> ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Pfolg/QuickTray/total) 
 
  [特点](#特点) | [下载](#下载) | [声明](#声明) | [LICENSE](LICENSE) 
 
