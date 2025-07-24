@@ -66,3 +66,12 @@
 # 将 UI 文件识别为 Python
 *.ui linguist-language=Python
 *.json linguist-language=Python
+*.md linguist-language=Python 
+*.yml linguist-language=Python 
+*.html linguist-language=Python 
+*.js linguist-language=Python 
+*.xml linguist-language=Python
+*.css linguist-language=Python 
+*.sql linguist-language=Python
+*.uml linguist-language=Python 
+*.cmd linguist-language=Python 
