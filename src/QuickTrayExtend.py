@@ -48,6 +48,7 @@ class EWidget(QWidget):
         self._string_path_not_exists = "路径不存在！"
         self._string_plshd = "Patience is key in life."
         self.picture_filter = "*.jpg *.png *.svg *.ico"
+        self._string_warning_wrong_instance = "输入数据类型不符！"
         self.setParent(p)
         self.tabWidget = QtWidgets.QTabWidget(parent=self)
         self.tabs = {}
@@ -131,8 +132,16 @@ class EWidget(QWidget):
                         d: dict = json.load(f1)
                     if isinstance(value, type(d.get(key))):
                         print(True)
+                        d[key] = value
+                        with open(fp, "w", encoding="utf-8") as f2:
+                            json.dump(d, f2, indent=4, ensure_ascii=False)
                     else:
                         print(False)
+                        QMessageBox.warning(
+                            self,
+                            "Warning",
+                            self._string_warning_wrong_instance
+                        )
                 else:
                     QMessageBox.warning(
                         self,
@@ -256,12 +265,12 @@ class EWidget(QWidget):
                 )
                 return
             if not os.path.exists(_icon):
-                QMessageBox.warning(
-                    self,
-                    "Warning",
-                    self._string_path_not_exists + "\n" + _icon
-                )
-
+                # QMessageBox.warning(
+                #     self,
+                #     "Warning",
+                #     self._string_path_not_exists + "\n" + _icon
+                # )
+                pass
             for i in _data:
                 if i.get("name") == _name:
                     _data.remove(i)
@@ -308,7 +317,7 @@ class EWidget(QWidget):
                 if i != keys[3]:
                     view.setText(view.text() + "*")
                 if i == keys[0]:
-                    b.setPlaceholderText("star,app")
+                    b.setPlaceholderText("star, app, link, scripts")
                 y += v
                 cache[i] = (view, b)
 
