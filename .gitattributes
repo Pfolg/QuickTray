@@ -75,3 +75,5 @@
 *.sql linguist-language=Python
 *.uml linguist-language=Python 
 *.cmd linguist-language=Python 
+*.toc linguist-language=Python 
+*.tex linguist-language=Python 
