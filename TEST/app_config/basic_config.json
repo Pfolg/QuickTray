@@ -2,7 +2,7 @@
     "tip": "Quick Tray",
     "version": "ver1.11.2-25718",
     "logo": "assets\\luabackend.ico",
-    "usecount": 0,
+    "usecount": 94,
     "port": 20082,
     "autorun": true
 }
