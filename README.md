@@ -68,6 +68,9 @@ C --> H[进入主循环]
 
 ![GitHub Release](https://img.shields.io/github/v/release/Pfolg/QuickTray)
 
+> **❗不兼容v1.11之前的版本**
+
+
 | Windows | [releases](https://github.com/Pfolg/QuickTray/releases) |
 |:-------:|:-------------------------------------------------------:|
 
