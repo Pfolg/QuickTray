@@ -3,6 +3,7 @@
 # Quick Tray
 
 ![GitHub License](https://img.shields.io/github/license/Pfolg/QuickTray) ![GitHub repo size](https://img.shields.io/github/repo-size/Pfolg/QuickTray) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Pfolg/QuickTray) ![GitHub last commit](https://img.shields.io/github/last-commit/Pfolg/QuickTray) ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/Pfolg/QuickTray) ![Static Badge](https://img.shields.io/badge/Windows-blue) ![Static Badge](https://img.shields.io/badge/Python3.11-green)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPfolg%2FQuickTray.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FPfolg%2FQuickTray?ref=badge_shield)
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/Pfolg/QuickTray) ![GitHub Release](https://img.shields.io/github/v/release/Pfolg/QuickTray) <img src="https://visitor-badge.laobi.icu/badge?page_id=Pfolg.QuickTray" /> ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Pfolg/QuickTray/total) 
 
@@ -14,6 +15,9 @@
 </div>
 
 <!-- ![GitHub language count](https://img.shields.io/github/languages/count/Pfolg/QuickTray) -->
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPfolg%2FQuickTray.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FPfolg%2FQuickTray?ref=badge_large)
 
 # 特点
 **系统托盘功能**
