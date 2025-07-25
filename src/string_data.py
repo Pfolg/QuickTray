@@ -11,7 +11,7 @@ import os
 
 
 class Data:
-    version = "ver1.11.3"
+    version = "ver1.11.3-20250725"
     website = "https://github.com/Pfolg/QuickTray"
     user_folder = "app_config"
     config_file = os.path.join(user_folder, "basic_config.json")  # user_folder + "/basic_config.json"
