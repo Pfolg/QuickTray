@@ -7,15 +7,16 @@ AUTHOR Pfolg
 TIME 2025/7/18 21:02
 """
 """用于储存常量的文件"""
+import os
 
 
 class Data:
-    version = "ver1.11.2-25718"
+    version = "ver1.11.3"
     website = "https://github.com/Pfolg/QuickTray"
     user_folder = "app_config"
-    config_file = user_folder + "/basic_config.json"
-    lines_file = user_folder + "/lines.json"
-    appList_file = user_folder + "/applist.json"
+    config_file = os.path.join(user_folder, "basic_config.json")  # user_folder + "/basic_config.json"
+    lines_file = os.path.join(user_folder, "lines.json")
+    appList_file = os.path.join(user_folder, "applist.json")
     port = 20082
     isautorun = True
     string_autorun = "autorun"
@@ -66,7 +67,7 @@ class Data:
     watermark1 = "Windows Hacked"
     watermark2 = "Go to http://127.0.0.1/ to pay the ransom."
     default_sentence = "Wish you hava a good day!"
-    default_sentence2 = "正在初始化……"
+    default_sentence2 = "QuickTray is Testing..."
 
     app_name = "Quick Tray"
     local_link = "127.0.0.1"

@@ -493,7 +493,7 @@ if __name__ == '__main__':
     if not os.path.exists(user_folder):
         os.mkdir(user_folder)
     # 是否正在测试
-    isTest = False
+    isTest = True
     # 读取配置
     appConfig = read_config_json()
 
