@@ -6,7 +6,7 @@
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/Pfolg/QuickTray) ![GitHub Release](https://img.shields.io/github/v/release/Pfolg/QuickTray) <img src="https://visitor-badge.laobi.icu/badge?page_id=Pfolg.QuickTray" /> ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Pfolg/QuickTray/total)
 
-|[特点](#特点) | [下载](#下载) | [声明](#声明) | [LICENSE](LICENSE)|
+|[特点](#特点) | [下载](#下载) | [声明](#声明) | [LICENSE](../LICENSE)|
 |:--:|:--:|:--:|:--:|
 
 _基于 PySide6 的系统托盘工具应用，主要提供快速启动、文本展示功能。_
