@@ -12,8 +12,9 @@
 _A system tray utility based on PySide6, providing quick launch and text display functions._
 
 </div>
+
 >[!NOTE]
->README [简体中文](docs/README.zh-CN.md)
+>README: [简体中文](docs/README.zh-CN.md)
 
 
 # Features
