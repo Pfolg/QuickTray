@@ -6,12 +6,15 @@
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/Pfolg/QuickTray) ![GitHub Release](https://img.shields.io/github/v/release/Pfolg/QuickTray) <img src="https://visitor-badge.laobi.icu/badge?page_id=Pfolg.QuickTray" /> ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Pfolg/QuickTray/total)
 
-|[Features](#features) | [Download](#download) | [Declaration](#declaration) | [LICENSE](LICENSE)|[简体中文](docs/README.zh.md)|
-|:--:|:--:|:--:|:--:|:--:|
+|[Features](#features) | [Download](#download) | [Declaration](#declaration) | [LICENSE](LICENSE)|
+|:--:|:--:|:--:|:--:|
 
 _A system tray utility based on PySide6, providing quick launch and text display functions._
 
 </div>
+>[!NOTE]
+>README [简体中文](docs/README.zh-CN.md)
+
 
 # Features
 
