@@ -149,7 +149,6 @@ class BeautifulSentence(QLabel):
 class Tray(QSystemTrayIcon):
     def __init__(self):
         super().__init__()
-        self.menu = QMenu()
         self.menu_setting = QMenu()
         self.language = app_language
         self.childMenus = {}
@@ -170,23 +169,28 @@ class Tray(QSystemTrayIcon):
         # 自启动
         self.self_start = QAction()
 
-        self.action_quit = QAction(parent=self.menu)
+        self.action_quit = QAction()
         # 关于：官网，更新
         self.menu_about = QMenu()
-        self.action_update = QAction(parent=self.menu)
-        self.action_website = QAction(parent=self.menu)
+        self.action_update = QAction(parent=self.menu_about)
+        self.action_website = QAction(parent=self.menu_about)
         # 文字标签菜单
         self.menu_text = QMenu()
         self.action_updateText = QAction(parent=self.menu_text)
         self.action_copyText = QAction(self.menu_text)
         self.action_editText = QAction(self.menu_text)
         # 加入搜索动作
-        self.action_search = QAction(parent=self.menu)
+        self.action_search = QAction()
 
-        self._addActions()
+        self.__bind_functions()
+        self.hot_boot()
+        self.show()
+
+    def hot_boot(self):
+        menu = self._addActions()
+        self.setContextMenu(menu)
         self.set_tray()
         self.setMenuLanguage()
-        self.show()
 
     def changeMenuLanguage(self, mark: str):
         self.language = getLanguage(mark)
@@ -235,46 +239,26 @@ class Tray(QSystemTrayIcon):
         self.self_start.setText(self.language.self_start_on if os.path.exists(
             os.path.expandvars(Data.start_link)) else self.language.self_start_off)
 
-    def _addActions(self):
-        # 设定设置菜单
-        self.menu_setting.setIcon(QIcon(Data.picture_preferences_other))
-
+    def __bind_functions(self):
         # 设定窗口
         self.action_setting0.triggered.connect(lambda: EWidget().show())
-
         # 编辑menu-json
         self.action_setting1.triggered.connect(self.setting)
         # 编辑setting-json
         self.action_setting2.triggered.connect(lambda: self.openTarget(config_file))
         # 打开所在文件夹
-        self.action_setting3.triggered.connect(lambda: os.startfile(os.getcwd()))
+        self.action_setting3.triggered.connect(lambda: os.startfile(getDirName()))
         # 刷新菜单
-        self.action_setting4.triggered.connect(self._addActions)
-
+        self.action_setting4.triggered.connect(self.hot_boot)
         # ---------
-
         self.language_en.triggered.connect(lambda: self.changeMenuLanguage("en"))
         self.language_zh.triggered.connect(lambda: self.changeMenuLanguage("zh"))
-
         # ---------
         # 操作快捷方式
         self.self_start.triggered.connect(self.shortcut_option)
-        # ---------
-
-        self.action_quit.setIcon(QIcon(Data.picture_power_off))
         self.action_quit.triggered.connect(sys.exit)
-        # ---------
-
-        # 关于：官网，更新
-        self.menu_about.setIcon(QIcon(Data.picture_circle_question))
-        self.action_update.setIcon(QIcon(Data.picture_circle_exclamation))
         self.action_update.triggered.connect(check_update)
-        self.action_website.setIcon(QIcon(Data.picture_github))
         self.action_website.triggered.connect(lambda: self.openTarget(website))
-        # ---------
-
-        # 文字标签菜单
-        self.menu_text.setIcon(QIcon(Data.picture_heading))
         # 更新标签
         self.action_updateText.triggered.connect(lambda: TextLabel.textGetSet())
         # 复制文本
@@ -282,9 +266,26 @@ class Tray(QSystemTrayIcon):
         # 编辑内容
         self.action_editText.triggered.connect(lambda: self.openTarget(lines_file))
         # ---------
-        # 加入搜索动作
-        self.action_search.setIcon(QIcon(Data.picture_search))
         self.action_search.triggered.connect(lambda: searchBox.show())
+
+    def _addActions(self) -> QMenu:
+        menu = QMenu()
+        # 设定设置菜单
+        self.menu_setting.setIcon(QIcon(Data.picture_preferences_other))
+        # ---------
+        self.action_quit.setParent(menu)
+        self.action_quit.setIcon(QIcon(Data.picture_power_off))
+        # ---------
+        # 关于：官网，更新
+        self.menu_about.setIcon(QIcon(Data.picture_circle_question))
+        self.action_update.setIcon(QIcon(Data.picture_circle_exclamation))
+        self.action_website.setIcon(QIcon(Data.picture_github))
+        # ---------
+        # 文字标签菜单
+        self.menu_text.setIcon(QIcon(Data.picture_heading))
+        # 加入搜索动作
+        self.action_search.setParent(menu)
+        self.action_search.setIcon(QIcon(Data.picture_search))
 
         self.change_language.addActions([self.language_en, self.language_zh])
         self.menu_setting.addActions([
@@ -293,9 +294,27 @@ class Tray(QSystemTrayIcon):
         self.menu_setting.addMenu(self.change_language)
         self.menu_about.addActions([self.action_website, self.action_update])
         self.menu_text.addActions([self.action_updateText, self.action_copyText, self.action_editText])
-        self.menu.addAction(self.action_search)
-        self.menu.addSeparator()
+        menu.addAction(self.action_search)
+        menu.addSeparator()
+        # ---------
+        self.update_child_menus()
+        for i in self.childMenus.values():
+            menu.addMenu(i)
+        # ---------
+        # 添加分割线
+        menu.addSeparator()
+        # 添加设置菜单
+        menu.addMenu(self.menu_setting)
+        # 添加文字标签菜单
+        menu.addMenu(self.menu_text)
+        # 添加关于菜单
+        menu.addMenu(self.menu_about)
+        # 添加基本动作
+        menu.addActions([self.action_quit])
+        print("menu set.")
+        return menu
 
+    def update_child_menus(self):
         # 设定子菜单
         menus_info = {
             "star": Data.picture_star,
@@ -313,8 +332,6 @@ class Tray(QSystemTrayIcon):
         for i in menus_info.keys():
             # 定义子菜单
             this_menu = QMenu()
-            # 定义对象名
-            this_menu.setObjectName(i)
             # 设置子菜单名称
             this_menu.setTitle(self.language.children_menu.get(i))
             # 设置图标
@@ -326,36 +343,22 @@ class Tray(QSystemTrayIcon):
                 "menu": this_menu,
                 "children_icon": children_icon.get(i)
             }
-            # 加入主菜单中
-            self.menu.addMenu(this_menu)
             # 保存引用
             self.childMenus[i] = this_menu
-
-        # 添加分割线
-        self.menu.addSeparator()
-        # 添加设置菜单
-        self.menu.addMenu(self.menu_setting)
-        # 添加文字标签菜单
-        self.menu.addMenu(self.menu_text)
-        # 添加关于菜单
-        self.menu.addMenu(self.menu_about)
-        # 添加基本动作
-        self.menu.addActions([self.action_quit])
         data = self.readSetting()
         # 排序
         data.reverse()
         if data:
             for i in data:
                 action = QAction()
-                action_type, action_name, action_path, action_icon = i.get("type"), i.get(
-                    "name"), i.get("path"), i.get("icon")
+                action_type = i.get("type")
+                action_name = i.get("name")
+                action_path = i.get("path")
+                action_icon = i.get("icon")
                 if action_type and action_name and action_path:
                     # print(action_name, action_path, action_icon)
-                    if action_name:
-                        action.setText(action_name)
-                    if action_path:
-                        # 通过默认参数传递当前值 c，解决作用域问题——by DeepSeek
-                        action.triggered.connect(lambda checked, p=action_path: self.openTarget(p))
+                    action.setText(action_name)
+                    action.triggered.connect(lambda checked, p=action_path: self.openTarget(p))
                     for m in _menu_info.keys():
                         if m in action_type:
                             tm = _menu_info.get(m).get("menu")
@@ -365,7 +368,6 @@ class Tray(QSystemTrayIcon):
                                 action.setIcon(QIcon(_menu_info.get(m).get("children_icon")))
                     if action_icon:
                         action.setIcon(QIcon(action_icon))
-        self.setContextMenu(self.menu)
 
     @staticmethod
     def setting():
@@ -604,7 +606,7 @@ if __name__ == '__main__':
     if not os.path.exists(user_folder):
         os.mkdir(user_folder)
     # 是否正在测试
-    isTest = False
+    isTest = True
     # 读取配置
     appConfig = read_config_json()
     # 设定语言
