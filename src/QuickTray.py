@@ -20,9 +20,10 @@ from PySide6 import QtWidgets, QtGui
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QIcon, QAction
 from PySide6.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QLabel, QLineEdit
-from QuickTrayExtend import EWidget
-from check_version import check_version_match
-from string_data import Data, getLanguage
+import win32com.client
+from Extend.QuickTrayExtend import EWidget
+from Extend.check_version import check_version_match
+from Extend.string_data import Data, getLanguage
 
 
 class SearchBox(QLineEdit):
@@ -166,6 +167,8 @@ class Tray(QSystemTrayIcon):
         self.change_language = QMenu()
         self.language_en = QAction(parent=self.change_language)
         self.language_zh = QAction(parent=self.change_language)
+        # 自启动
+        self.self_start = QAction()
 
         self.action_quit = QAction(parent=self.menu)
         # 关于：官网，更新
@@ -194,6 +197,20 @@ class Tray(QSystemTrayIcon):
             self.language.language_changed_tip
         )
 
+    def shortcut_option(self):
+        if self.self_start.text() == self.language.self_start_off:
+            makeShortcut(
+                apppath=getPath(),
+                icoPath=appConfig.get("logo"),
+                workingDirectory=getDirName(),
+                pathName=Data.start_link
+            )
+        else:
+            delete_shortcut(Data.start_link)
+
+        self.self_start.setText(self.language.self_start_on if os.path.exists(
+            os.path.expandvars(Data.start_link)) else self.language.self_start_off)
+
     def setMenuLanguage(self):
         self.menu_setting.setTitle(self.language.string_setting)
         self.action_setting0.setText(self.language.string_settingw)
@@ -215,6 +232,8 @@ class Tray(QSystemTrayIcon):
         self.action_search.setText(self.language.string_search)
         for k, v in self.childMenus.items():
             v.setTitle(self.language.children_menu.get(k))
+        self.self_start.setText(self.language.self_start_on if os.path.exists(
+            os.path.expandvars(Data.start_link)) else self.language.self_start_off)
 
     def _addActions(self):
         # 设定设置菜单
@@ -236,6 +255,10 @@ class Tray(QSystemTrayIcon):
 
         self.language_en.triggered.connect(lambda: self.changeMenuLanguage("en"))
         self.language_zh.triggered.connect(lambda: self.changeMenuLanguage("zh"))
+
+        # ---------
+        # 操作快捷方式
+        self.self_start.triggered.connect(self.shortcut_option)
         # ---------
 
         self.action_quit.setIcon(QIcon(Data.picture_power_off))
@@ -266,7 +289,7 @@ class Tray(QSystemTrayIcon):
         self.change_language.addActions([self.language_en, self.language_zh])
         self.menu_setting.addActions([
             self.action_setting0, self.action_setting4, self.action_setting3, self.action_setting2,
-            self.action_setting1])
+            self.action_setting1, self.self_start])
         self.menu_setting.addMenu(self.change_language)
         self.menu_about.addActions([self.action_website, self.action_update])
         self.menu_text.addActions([self.action_updateText, self.action_copyText, self.action_editText])
@@ -412,6 +435,84 @@ def td_autorun():
                     time.sleep(3)
 
 
+def getDirName():
+    # 判断是否打包环境
+    if getattr(sys, 'frozen', False):
+        base_path = os.path.dirname(sys.executable)  # exe所在目录
+    else:
+        base_path = os.path.dirname(__file__)  # 脚本所在目录
+
+    return base_path
+
+
+def getPath():
+    if getattr(sys, 'frozen', False):
+        return sys.executable  # exe所在目录
+    else:
+        return __file__  # 脚本所在目录
+
+
+# 定义创建的函数
+def makeShortcut(
+        apppath, icoPath, workingDirectory,
+        pathName, description="",
+        arguments="", style=1):
+    if pathName and apppath:
+        try:
+            # 创建WScript.Shell对象
+            shell = win32com.client.Dispatch("WScript.Shell")
+
+            # 指定快捷方式保存的位置和名称
+            pathName = os.path.expandvars(pathName)
+            icoPath = os.path.join(getDirName(), icoPath)
+            # 删除可能存在的快捷方式
+            if os.path.exists(pathName):
+                os.remove(pathName)
+            print(pathName)
+            print(icoPath)
+
+            # 创建快捷方式
+            shortcut = shell.CreateShortcut(pathName)
+
+            # 设置快捷方式的属性
+            shortcut.TargetPath = apppath  # 应用程序路径
+            shortcut.IconLocation = icoPath  # 图标路径
+            shortcut.WindowStyle = style  # 1 表示正常窗口，其他值根据需要设置
+            """
+            "正常窗口（程序正常运行，窗口可见）": 1,
+            "最小化窗口（程序运行，窗口最小化到任务栏）": 3,
+            "最大化窗口（程序运行，窗口最大化）": 7
+            """
+            shortcut.Arguments = arguments  # 程序启动参数
+            shortcut.Description = description  # 快捷方式描述
+            shortcut.WorkingDirectory = workingDirectory  # 工作目录
+
+            # 保存快捷方式
+            shortcut.Save()
+        except Exception as e:
+            tray.showMessage("Error", str(e))
+            print(str(e))
+
+        if os.path.exists(pathName):
+            tray.showMessage("tip", app_language.tip_create_shortcut_success)
+        else:
+            tray.showMessage("tip", app_language.tip_create_shortcut_fail)
+
+
+def delete_shortcut(path):
+    _msg = app_language.tip_delete_shortcut_success
+    path = os.path.expandvars(path)
+    try:
+        if os.path.exists(path):
+            os.remove(path)
+        else:
+            _msg = app_language.tip_delete_shortcut_fail
+    except Exception as e:
+        _msg = app_language.tip_delete_shortcut_fail + "\n" + str(e)
+
+    tray.showMessage("Tip", _msg)
+
+
 def check_update():
     b, flag = check_version_match(version)
     if b:
@@ -503,7 +604,7 @@ if __name__ == '__main__':
     if not os.path.exists(user_folder):
         os.mkdir(user_folder)
     # 是否正在测试
-    isTest = True
+    isTest = False
     # 读取配置
     appConfig = read_config_json()
     # 设定语言

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>modulegraph cross reference for QuickTray.py, pyi_rth_inspect.py, pyi_rth_multiprocessing.py, pyi_rth_pkgutil.py, pyi_rth_pyside6.py</title>
+    <title>modulegraph cross reference for QuickTray.py, pyi_rth_inspect.py, pyi_rth_multiprocessing.py, pyi_rth_pkgutil.py, pyi_rth_pyside6.py, pyi_rth_pythoncom.py, pyi_rth_pywintypes.py</title>
     <style>
       .node { padding: 0.5em 0 0.5em; border-top: thin grey dotted; }
       .moduletype { font: smaller italic }
@@ -11,22 +11,23 @@
     </style>
   </head>
   <body>
-    <h1>modulegraph cross reference for QuickTray.py, pyi_rth_inspect.py, pyi_rth_multiprocessing.py, pyi_rth_pkgutil.py, pyi_rth_pyside6.py</h1>
+    <h1>modulegraph cross reference for QuickTray.py, pyi_rth_inspect.py, pyi_rth_multiprocessing.py, pyi_rth_pkgutil.py, pyi_rth_pyside6.py, pyi_rth_pythoncom.py, pyi_rth_pywintypes.py</h1>
 
 <div class="node">
   <a name="QuickTray.py"></a>
   <a target="code" href="///D:/repos/QuickTray/src/QuickTray.py" type="text/plain"><tt>QuickTray.py</tt></a>
 <span class="moduletype">Script</span>  <div class="import">
 imports:
-    <a href="#PySide6">PySide6</a>
+    <a href="#Extend.QuickTrayExtend">Extend.QuickTrayExtend</a>
+ &#8226;   <a href="#Extend.check_version">Extend.check_version</a>
+ &#8226;   <a href="#Extend.string_data">Extend.string_data</a>
+ &#8226;   <a href="#PySide6">PySide6</a>
  &#8226;   <a href="#PySide6.QtCore">PySide6.QtCore</a>
  &#8226;   <a href="#PySide6.QtGui">PySide6.QtGui</a>
  &#8226;   <a href="#PySide6.QtWidgets">PySide6.QtWidgets</a>
- &#8226;   <a href="#QuickTrayExtend">QuickTrayExtend</a>
  &#8226;   <a href="#_collections_abc">_collections_abc</a>
  &#8226;   <a href="#_weakrefset">_weakrefset</a>
  &#8226;   <a href="#abc">abc</a>
- &#8226;   <a href="#check_version">check_version</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#collections.abc">collections.abc</a>
@@ -156,7 +157,6 @@ imports:
  &#8226;   <a href="#enum">enum</a>
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#genericpath">genericpath</a>
- &#8226;   <a href="#get_windows_menus">get_windows_menus</a>
  &#8226;   <a href="#heapq">heapq</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#json">json</a>
@@ -173,6 +173,8 @@ imports:
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
  &#8226;   <a href="#pyi_rth_pkgutil.py">pyi_rth_pkgutil.py</a>
  &#8226;   <a href="#pyi_rth_pyside6.py">pyi_rth_pyside6.py</a>
+ &#8226;   <a href="#pyi_rth_pythoncom.py">pyi_rth_pythoncom.py</a>
+ &#8226;   <a href="#pyi_rth_pywintypes.py">pyi_rth_pywintypes.py</a>
  &#8226;   <a href="#pyperclip">pyperclip</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#re">re</a>
@@ -186,7 +188,6 @@ imports:
  &#8226;   <a href="#sre_constants">sre_constants</a>
  &#8226;   <a href="#sre_parse">sre_parse</a>
  &#8226;   <a href="#stat">stat</a>
- &#8226;   <a href="#string_data">string_data</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#time">time</a>
  &#8226;   <a href="#traceback">traceback</a>
@@ -195,6 +196,7 @@ imports:
  &#8226;   <a href="#warnings">warnings</a>
  &#8226;   <a href="#weakref">weakref</a>
  &#8226;   <a href="#webbrowser">webbrowser</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
 
   </div>
 
@@ -275,6 +277,40 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="pyi_rth_pythoncom.py"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/_pyinstaller_hooks_contrib/rthooks/pyi_rth_pythoncom.py" type="text/plain"><tt>pyi_rth_pythoncom.py</tt></a>
+<span class="moduletype">Script</span>  <div class="import">
+imports:
+    <a href="#os">os</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#QuickTray.py">QuickTray.py</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="pyi_rth_pywintypes.py"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/_pyinstaller_hooks_contrib/rthooks/pyi_rth_pywintypes.py" type="text/plain"><tt>pyi_rth_pywintypes.py</tt></a>
+<span class="moduletype">Script</span>  <div class="import">
+imports:
+    <a href="#os">os</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#QuickTray.py">QuickTray.py</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="'OpenSSL.crypto'"></a>
   <a target="code" href="" type="text/plain"><tt>'OpenSSL.crypto'</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
@@ -335,7 +371,7 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>'org.python'</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#copy">copy</a>
+    <a href="#pickle">pickle</a>
  &#8226;   <a href="#xml.sax">xml.sax</a>
 
   </div>
@@ -354,11 +390,92 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="'win32com.gen_py'"></a>
+  <a target="code" href="" type="text/plain"><tt>'win32com.gen_py'</tt></a>
+<span class="moduletype">MissingModule</span>  <div class="import">
+imported by:
+    <a href="#win32com">win32com</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="AppKit"></a>
   <a target="code" href="" type="text/plain"><tt>AppKit</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
     <a href="#pyperclip">pyperclip</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="Extend"></a>
+  <a target="code" href="-" type="text/plain"><tt>Extend</tt></a>
+<span class="moduletype">NamespacePackage</span>  <div class="import">
+imported by:
+    <a href="#Extend.QuickTrayExtend">Extend.QuickTrayExtend</a>
+ &#8226;   <a href="#Extend.check_version">Extend.check_version</a>
+ &#8226;   <a href="#Extend.string_data">Extend.string_data</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="Extend.QuickTrayExtend"></a>
+  <a target="code" href="///D:/repos/QuickTray/src/Extend/QuickTrayExtend.py" type="text/plain"><tt>Extend.QuickTrayExtend</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#Extend">Extend</a>
+ &#8226;   <a href="#PySide6">PySide6</a>
+ &#8226;   <a href="#PySide6.QtCore">PySide6.QtCore</a>
+ &#8226;   <a href="#PySide6.QtWidgets">PySide6.QtWidgets</a>
+ &#8226;   <a href="#json">json</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#QuickTray.py">QuickTray.py</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="Extend.check_version"></a>
+  <a target="code" href="///D:/repos/QuickTray/src/Extend/check_version.py" type="text/plain"><tt>Extend.check_version</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#Extend">Extend</a>
+ &#8226;   <a href="#requests">requests</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#QuickTray.py">QuickTray.py</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="Extend.string_data"></a>
+  <a target="code" href="///D:/repos/QuickTray/src/Extend/string_data.py" type="text/plain"><tt>Extend.string_data</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#Extend">Extend</a>
+ &#8226;   <a href="#dataclasses">dataclasses</a>
+ &#8226;   <a href="#os">os</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#QuickTray.py">QuickTray.py</a>
 
   </div>
 
@@ -417,14 +534,14 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#PySide6">PySide6</a>
+    <a href="#Extend.QuickTrayExtend">Extend.QuickTrayExtend</a>
+ &#8226;   <a href="#PySide6">PySide6</a>
  &#8226;   <a href="#PySide6.QtCore">PySide6.QtCore</a>
  &#8226;   <a href="#PySide6.QtGui">PySide6.QtGui</a>
  &#8226;   <a href="#PySide6.QtNetwork">PySide6.QtNetwork</a>
  &#8226;   <a href="#PySide6.QtWidgets">PySide6.QtWidgets</a>
  &#8226;   <a href="#PySide6.support">PySide6.support</a>
  &#8226;   <a href="#QuickTray.py">QuickTray.py</a>
- &#8226;   <a href="#QuickTrayExtend">QuickTrayExtend</a>
 
   </div>
 
@@ -447,12 +564,12 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#PySide6.QtCore">PySide6.QtCore</a>
+    <a href="#Extend.QuickTrayExtend">Extend.QuickTrayExtend</a>
+ &#8226;   <a href="#PySide6.QtCore">PySide6.QtCore</a>
  &#8226;   <a href="#PySide6.QtGui">PySide6.QtGui</a>
  &#8226;   <a href="#PySide6.QtNetwork">PySide6.QtNetwork</a>
  &#8226;   <a href="#PySide6.QtWidgets">PySide6.QtWidgets</a>
  &#8226;   <a href="#QuickTray.py">QuickTray.py</a>
- &#8226;   <a href="#QuickTrayExtend">QuickTrayExtend</a>
 
   </div>
 
@@ -527,10 +644,10 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#PySide6">PySide6</a>
+    <a href="#Extend.QuickTrayExtend">Extend.QuickTrayExtend</a>
+ &#8226;   <a href="#PySide6">PySide6</a>
  &#8226;   <a href="#PySide6.QtWidgets">PySide6.QtWidgets</a>
  &#8226;   <a href="#QuickTray.py">QuickTray.py</a>
- &#8226;   <a href="#QuickTrayExtend">QuickTrayExtend</a>
 
   </div>
 
@@ -572,27 +689,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="QuickTrayExtend"></a>
-  <a target="code" href="///D:/repos/QuickTray/src/QuickTrayExtend.py" type="text/plain"><tt>QuickTrayExtend</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#PySide6">PySide6</a>
- &#8226;   <a href="#PySide6.QtCore">PySide6.QtCore</a>
- &#8226;   <a href="#PySide6.QtWidgets">PySide6.QtWidgets</a>
- &#8226;   <a href="#json">json</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#QuickTray.py">QuickTray.py</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="__future__"></a>
   <a target="code" href="///D:/Program%20Files/Python311/Lib/__future__.py" type="text/plain"><tt>__future__</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -612,35 +708,6 @@ imported by:
  &#8226;   <a href="#charset_normalizer.models">charset_normalizer.models</a>
  &#8226;   <a href="#charset_normalizer.utils">charset_normalizer.utils</a>
  &#8226;   <a href="#charset_normalizer.version">charset_normalizer.version</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.compat">pypinyin.compat</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.contrib._tone_rule">pypinyin.contrib._tone_rule</a>
- &#8226;   <a href="#pypinyin.contrib.neutral_tone">pypinyin.contrib.neutral_tone</a>
- &#8226;   <a href="#pypinyin.contrib.tone_convert">pypinyin.contrib.tone_convert</a>
- &#8226;   <a href="#pypinyin.contrib.tone_sandhi">pypinyin.contrib.tone_sandhi</a>
- &#8226;   <a href="#pypinyin.contrib.uv">pypinyin.contrib.uv</a>
- &#8226;   <a href="#pypinyin.converter">pypinyin.converter</a>
- &#8226;   <a href="#pypinyin.core">pypinyin.core</a>
- &#8226;   <a href="#pypinyin.exceptions">pypinyin.exceptions</a>
- &#8226;   <a href="#pypinyin.phonetic_symbol">pypinyin.phonetic_symbol</a>
- &#8226;   <a href="#pypinyin.phrases_dict">pypinyin.phrases_dict</a>
- &#8226;   <a href="#pypinyin.pinyin_dict">pypinyin.pinyin_dict</a>
- &#8226;   <a href="#pypinyin.seg.simpleseg">pypinyin.seg.simpleseg</a>
- &#8226;   <a href="#pypinyin.standard">pypinyin.standard</a>
- &#8226;   <a href="#pypinyin.style._constants">pypinyin.style._constants</a>
- &#8226;   <a href="#pypinyin.style._tone_convert">pypinyin.style._tone_convert</a>
- &#8226;   <a href="#pypinyin.style._tone_rule">pypinyin.style._tone_rule</a>
- &#8226;   <a href="#pypinyin.style._utils">pypinyin.style._utils</a>
- &#8226;   <a href="#pypinyin.style.bopomofo">pypinyin.style.bopomofo</a>
- &#8226;   <a href="#pypinyin.style.cyrillic">pypinyin.style.cyrillic</a>
- &#8226;   <a href="#pypinyin.style.finals">pypinyin.style.finals</a>
- &#8226;   <a href="#pypinyin.style.gwoyeu">pypinyin.style.gwoyeu</a>
- &#8226;   <a href="#pypinyin.style.initials">pypinyin.style.initials</a>
- &#8226;   <a href="#pypinyin.style.others">pypinyin.style.others</a>
- &#8226;   <a href="#pypinyin.style.tone">pypinyin.style.tone</a>
- &#8226;   <a href="#pypinyin.style.wadegiles">pypinyin.style.wadegiles</a>
- &#8226;   <a href="#pypinyin.utils">pypinyin.utils</a>
  &#8226;   <a href="#shiboken6.Shiboken">shiboken6.Shiboken</a>
  &#8226;   <a href="#urllib3">urllib3</a>
  &#8226;   <a href="#urllib3._base_connection">urllib3._base_connection</a>
@@ -676,6 +743,11 @@ imported by:
  &#8226;   <a href="#urllib3.util.url">urllib3.util.url</a>
  &#8226;   <a href="#urllib3.util.util">urllib3.util.util</a>
  &#8226;   <a href="#urllib3.util.wait">urllib3.util.wait</a>
+ &#8226;   <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.CLSIDToClass">win32com.client.CLSIDToClass</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.server.dispatcher">win32com.server.dispatcher</a>
  &#8226;   <a href="#zstandard">zstandard</a>
  &#8226;   <a href="#zstandard.backend_cffi">zstandard.backend_cffi</a>
 
@@ -1582,6 +1654,16 @@ imported by:
  &#8226;   <a href="#multiprocessing.process">multiprocessing.process</a>
  &#8226;   <a href="#threading">threading</a>
  &#8226;   <a href="#weakref">weakref</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="_win32sysloader"></a>
+  <tt>_win32sysloader</tt> <span class="moduletype"><tt>D:\venvs\.PySide6\Lib\site-packages\win32\_win32sysloader.pyd</tt></span>  <div class="import">
+imported by:
+    <a href="#pywintypes">pywintypes</a>
 
   </div>
 
@@ -2800,6 +2882,7 @@ imported by:
  &#8226;   <a href="#tokenize">tokenize</a>
  &#8226;   <a href="#typing_extensions">typing_extensions</a>
  &#8226;   <a href="#warnings">warnings</a>
+ &#8226;   <a href="#win32com.client.build">win32com.client.build</a>
  &#8226;   <a href="#zstandard">zstandard</a>
 
   </div>
@@ -4080,22 +4163,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="check_version"></a>
-  <a target="code" href="///D:/repos/QuickTray/src/check_version.py" type="text/plain"><tt>check_version</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#requests">requests</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#QuickTray.py">QuickTray.py</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="codecs"></a>
   <a target="code" href="///D:/Program%20Files/Python311/Lib/codecs.py" type="text/plain"><tt>codecs</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -4237,8 +4304,6 @@ imported by:
  &#8226;   <a href="#encodings.zlib_codec">encodings.zlib_codec</a>
  &#8226;   <a href="#json">json</a>
  &#8226;   <a href="#pickle">pickle</a>
- &#8226;   <a href="#pypinyin.phrases_dict">pypinyin.phrases_dict</a>
- &#8226;   <a href="#pypinyin.pinyin_dict">pypinyin.pinyin_dict</a>
  &#8226;   <a href="#requests.utils">requests.utils</a>
  &#8226;   <a href="#tokenize">tokenize</a>
  &#8226;   <a href="#urllib3.filepost">urllib3.filepost</a>
@@ -4347,6 +4412,17 @@ imported by:
  &#8226;   <a href="#tracemalloc">tracemalloc</a>
  &#8226;   <a href="#typing">typing</a>
  &#8226;   <a href="#typing_extensions">typing_extensions</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="commctrl"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32/lib/commctrl.py" type="text/plain"><tt>commctrl</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imported by:
+    <a href="#pywin.dialogs.list">pywin.dialogs.list</a>
 
   </div>
 
@@ -4499,6 +4575,7 @@ imported by:
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#urllib3.contrib.emscripten.response">urllib3.contrib.emscripten.response</a>
  &#8226;   <a href="#urllib3.response">urllib3.response</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
  &#8226;   <a href="#zipfile">zipfile</a>
 
   </div>
@@ -4531,8 +4608,8 @@ imported by:
   <a target="code" href="///D:/Program%20Files/Python311/Lib/copy.py" type="text/plain"><tt>copy</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#'org.python'">'org.python'</a>
- &#8226;   <a href="#copyreg">copyreg</a>
+    <a href="#copyreg">copyreg</a>
+ &#8226;   <a href="#org">org</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#weakref">weakref</a>
 
@@ -4546,7 +4623,6 @@ imported by:
  &#8226;   <a href="#email.generator">email.generator</a>
  &#8226;   <a href="#gettext">gettext</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
- &#8226;   <a href="#pypinyin.converter">pypinyin.converter</a>
  &#8226;   <a href="#requests.cookies">requests.cookies</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#weakref">weakref</a>
@@ -4687,7 +4763,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#pprint">pprint</a>
+    <a href="#Extend.string_data">Extend.string_data</a>
+ &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#urllib3.contrib.emscripten.request">urllib3.contrib.emscripten.request</a>
  &#8226;   <a href="#urllib3.contrib.emscripten.response">urllib3.contrib.emscripten.response</a>
 
@@ -4718,6 +4795,7 @@ imported by:
  &#8226;   <a href="#requests.models">requests.models</a>
  &#8226;   <a href="#requests.sessions">requests.sessions</a>
  &#8226;   <a href="#urllib3.connection">urllib3.connection</a>
+ &#8226;   <a href="#win32com.client.build">win32com.client.build</a>
  &#8226;   <a href="#xmlrpc.client">xmlrpc.client</a>
 
   </div>
@@ -7789,7 +7867,6 @@ imported by:
  &#8226;   <a href="#psutil._common">psutil._common</a>
  &#8226;   <a href="#psutil._pswindows">psutil._pswindows</a>
  &#8226;   <a href="#py_compile">py_compile</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#signal">signal</a>
  &#8226;   <a href="#socket">socket</a>
@@ -7961,7 +8038,6 @@ imported by:
  &#8226;   <a href="#psutil">psutil</a>
  &#8226;   <a href="#psutil._common">psutil._common</a>
  &#8226;   <a href="#psutil._pswindows">psutil._pswindows</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#shiboken6">shiboken6</a>
  &#8226;   <a href="#statistics">statistics</a>
@@ -8016,23 +8092,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="get_windows_menus"></a>
-  <a target="code" href="///D:/repos/QuickTray/src/get_windows_menus.py" type="text/plain"><tt>get_windows_menus</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#os">os</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#QuickTray.py">QuickTray.py</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="getopt"></a>
   <a target="code" href="///D:/Program%20Files/Python311/Lib/getopt.py" type="text/plain"><tt>getopt</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -8048,6 +8107,8 @@ imported by:
  &#8226;   <a href="#mimetypes">mimetypes</a>
  &#8226;   <a href="#quopri">quopri</a>
  &#8226;   <a href="#webbrowser">webbrowser</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
 
   </div>
 
@@ -8119,6 +8180,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#webbrowser">webbrowser</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
 
   </div>
 
@@ -8484,7 +8546,6 @@ imports:
  &#8226;   <a href="#importlib">importlib</a>
  &#8226;   <a href="#importlib._bootstrap">importlib._bootstrap</a>
  &#8226;   <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
- &#8226;   <a href="#importlib.machinery">importlib.machinery</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#warnings">warnings</a>
 
@@ -8508,6 +8569,8 @@ imported by:
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#requests.compat">requests.compat</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
 
   </div>
 
@@ -8620,11 +8683,11 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#importlib">importlib</a>
- &#8226;   <a href="#importlib.abc">importlib.abc</a>
+    <a href="#importlib.abc">importlib.abc</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#py_compile">py_compile</a>
+ &#8226;   <a href="#pywintypes">pywintypes</a>
  &#8226;   <a href="#runpy">runpy</a>
 
   </div>
@@ -8988,6 +9051,7 @@ imports:
 imported by:
     <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#py_compile">py_compile</a>
+ &#8226;   <a href="#pywintypes">pywintypes</a>
  &#8226;   <a href="#runpy">runpy</a>
  &#8226;   <a href="#zipfile">zipfile</a>
 
@@ -9104,6 +9168,7 @@ imported by:
  &#8226;   <a href="#urllib3.response">urllib3.response</a>
  &#8226;   <a href="#urllib3.util.request">urllib3.util.request</a>
  &#8226;   <a href="#urllib3.util.ssltransport">urllib3.util.ssltransport</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
  &#8226;   <a href="#xml.sax">xml.sax</a>
  &#8226;   <a href="#xml.sax.saxutils">xml.sax.saxutils</a>
  &#8226;   <a href="#xmlrpc.client">xmlrpc.client</a>
@@ -9160,8 +9225,6 @@ imported by:
  &#8226;   <a href="#multiprocessing.util">multiprocessing.util</a>
  &#8226;   <a href="#pickle">pickle</a>
  &#8226;   <a href="#platform">platform</a>
- &#8226;   <a href="#pypinyin.core">pypinyin.core</a>
- &#8226;   <a href="#pypinyin.seg.simpleseg">pypinyin.seg.simpleseg</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#reprlib">reprlib</a>
  &#8226;   <a href="#statistics">statistics</a>
@@ -9170,6 +9233,10 @@ imported by:
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#urllib3.util.retry">urllib3.util.retry</a>
  &#8226;   <a href="#weakref">weakref</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.build">win32com.client.build</a>
+ &#8226;   <a href="#win32com.client.dynamic">win32com.client.dynamic</a>
+ &#8226;   <a href="#win32com.client.genpy">win32com.client.genpy</a>
  &#8226;   <a href="#zipfile">zipfile</a>
 
   </div>
@@ -9211,14 +9278,12 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#QuickTray.py">QuickTray.py</a>
- &#8226;   <a href="#QuickTrayExtend">QuickTrayExtend</a>
+    <a href="#Extend.QuickTrayExtend">Extend.QuickTrayExtend</a>
+ &#8226;   <a href="#QuickTray.py">QuickTray.py</a>
  &#8226;   <a href="#charset_normalizer.models">charset_normalizer.models</a>
  &#8226;   <a href="#json.decoder">json.decoder</a>
  &#8226;   <a href="#json.encoder">json.encoder</a>
  &#8226;   <a href="#json.scanner">json.scanner</a>
- &#8226;   <a href="#pypinyin.phrases_dict">pypinyin.phrases_dict</a>
- &#8226;   <a href="#pypinyin.pinyin_dict">pypinyin.pinyin_dict</a>
  &#8226;   <a href="#requests.compat">requests.compat</a>
  &#8226;   <a href="#urllib3._request_methods">urllib3._request_methods</a>
  &#8226;   <a href="#urllib3.contrib.emscripten.fetch">urllib3.contrib.emscripten.fetch</a>
@@ -9297,6 +9362,7 @@ imported by:
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#shiboken6">shiboken6</a>
  &#8226;   <a href="#typing_extensions">typing_extensions</a>
+ &#8226;   <a href="#win32com.client.build">win32com.client.build</a>
 
   </div>
 
@@ -10452,7 +10518,7 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>org</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#pickle">pickle</a>
+    <a href="#copy">copy</a>
 
   </div>
 
@@ -10479,13 +10545,14 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#PySide6">PySide6</a>
+    <a href="#Extend.QuickTrayExtend">Extend.QuickTrayExtend</a>
+ &#8226;   <a href="#Extend.string_data">Extend.string_data</a>
+ &#8226;   <a href="#PySide6">PySide6</a>
  &#8226;   <a href="#PySide6.QtCore">PySide6.QtCore</a>
  &#8226;   <a href="#PySide6.QtGui">PySide6.QtGui</a>
  &#8226;   <a href="#PySide6.QtNetwork">PySide6.QtNetwork</a>
  &#8226;   <a href="#PySide6.QtWidgets">PySide6.QtWidgets</a>
  &#8226;   <a href="#QuickTray.py">QuickTray.py</a>
- &#8226;   <a href="#QuickTrayExtend">QuickTrayExtend</a>
  &#8226;   <a href="#_pyi_rth_utils">_pyi_rth_utils</a>
  &#8226;   <a href="#_pyi_rth_utils.qt">_pyi_rth_utils.qt</a>
  &#8226;   <a href="#argparse">argparse</a>
@@ -10505,7 +10572,6 @@ imported by:
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#fnmatch">fnmatch</a>
  &#8226;   <a href="#genericpath">genericpath</a>
- &#8226;   <a href="#get_windows_menus">get_windows_menus</a>
  &#8226;   <a href="#getopt">getopt</a>
  &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#gettext">gettext</a>
@@ -10553,10 +10619,10 @@ imported by:
  &#8226;   <a href="#py_compile">py_compile</a>
  &#8226;   <a href="#pyi_rth_inspect.py">pyi_rth_inspect.py</a>
  &#8226;   <a href="#pyi_rth_pyside6.py">pyi_rth_pyside6.py</a>
+ &#8226;   <a href="#pyi_rth_pythoncom.py">pyi_rth_pythoncom.py</a>
+ &#8226;   <a href="#pyi_rth_pywintypes.py">pyi_rth_pywintypes.py</a>
  &#8226;   <a href="#pyperclip">pyperclip</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.phrases_dict">pypinyin.phrases_dict</a>
- &#8226;   <a href="#pypinyin.pinyin_dict">pypinyin.pinyin_dict</a>
+ &#8226;   <a href="#pywintypes">pywintypes</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#requests.auth">requests.auth</a>
  &#8226;   <a href="#requests.sessions">requests.sessions</a>
@@ -10567,7 +10633,6 @@ imported by:
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#socket">socket</a>
  &#8226;   <a href="#ssl">ssl</a>
- &#8226;   <a href="#string_data">string_data</a>
  &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#tempfile">tempfile</a>
@@ -10578,6 +10643,10 @@ imported by:
  &#8226;   <a href="#urllib3.filepost">urllib3.filepost</a>
  &#8226;   <a href="#urllib3.util.ssl_">urllib3.util.ssl_</a>
  &#8226;   <a href="#webbrowser">webbrowser</a>
+ &#8226;   <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.client.genpy">win32com.client.genpy</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
  &#8226;   <a href="#xml.sax">xml.sax</a>
  &#8226;   <a href="#xml.sax.saxutils">xml.sax.saxutils</a>
  &#8226;   <a href="#zipfile">zipfile</a>
@@ -10651,14 +10720,14 @@ imported by:
   <a target="code" href="///D:/Program%20Files/Python311/Lib/pickle.py" type="text/plain"><tt>pickle</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#_compat_pickle">_compat_pickle</a>
+    <a href="#'org.python'">'org.python'</a>
+ &#8226;   <a href="#_compat_pickle">_compat_pickle</a>
  &#8226;   <a href="#_pickle">_pickle</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#copyreg">copyreg</a>
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#itertools">itertools</a>
- &#8226;   <a href="#org">org</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#struct">struct</a>
@@ -10671,6 +10740,7 @@ imported by:
     <a href="#logging">logging</a>
  &#8226;   <a href="#multiprocessing.reduction">multiprocessing.reduction</a>
  &#8226;   <a href="#tracemalloc">tracemalloc</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
 
   </div>
 
@@ -11019,732 +11089,250 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="pypinyin"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/__init__.py" type="text/plain"><tt>pypinyin</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
+  <a name="pythoncom"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pythoncom.py" type="text/plain"><tt>pythoncom</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.compat">pypinyin.compat</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.core">pypinyin.core</a>
- &#8226;   <a href="#pypinyin.phonetic_symbol">pypinyin.phonetic_symbol</a>
- &#8226;   <a href="#pypinyin.phrases_dict">pypinyin.phrases_dict</a>
- &#8226;   <a href="#pypinyin.pinyin_dict">pypinyin.pinyin_dict</a>
+    <a href="#pywintypes">pywintypes</a>
 
   </div>
   <div class="import">
 imported by:
-    <a href="#get_windows_menus">get_windows_menus</a>
- &#8226;   <a href="#pypinyin.compat">pypinyin.compat</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.contrib">pypinyin.contrib</a>
- &#8226;   <a href="#pypinyin.contrib.neutral_tone">pypinyin.contrib.neutral_tone</a>
- &#8226;   <a href="#pypinyin.converter">pypinyin.converter</a>
- &#8226;   <a href="#pypinyin.core">pypinyin.core</a>
- &#8226;   <a href="#pypinyin.exceptions">pypinyin.exceptions</a>
- &#8226;   <a href="#pypinyin.phonetic_symbol">pypinyin.phonetic_symbol</a>
- &#8226;   <a href="#pypinyin.phrases_dict">pypinyin.phrases_dict</a>
- &#8226;   <a href="#pypinyin.pinyin_dict">pypinyin.pinyin_dict</a>
- &#8226;   <a href="#pypinyin.seg">pypinyin.seg</a>
- &#8226;   <a href="#pypinyin.standard">pypinyin.standard</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style._constants">pypinyin.style._constants</a>
- &#8226;   <a href="#pypinyin.style._tone_convert">pypinyin.style._tone_convert</a>
- &#8226;   <a href="#pypinyin.utils">pypinyin.utils</a>
+    <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.build">win32com.client.build</a>
+ &#8226;   <a href="#win32com.client.dynamic">win32com.client.dynamic</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.client.genpy">win32com.client.genpy</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
+ &#8226;   <a href="#win32com.client.selecttlb">win32com.client.selecttlb</a>
+ &#8226;   <a href="#win32com.client.util">win32com.client.util</a>
+ &#8226;   <a href="#win32com.server.dispatcher">win32com.server.dispatcher</a>
+ &#8226;   <a href="#win32com.server.exception">win32com.server.exception</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
+ &#8226;   <a href="#win32com.server.util">win32com.server.util</a>
+ &#8226;   <a href="#win32com.universal">win32com.universal</a>
+ &#8226;   <a href="#win32com.util">win32com.util</a>
 
   </div>
 
 </div>
 
 <div class="node">
-  <a name="pypinyin.compat"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/compat.py" type="text/plain"><tt>pypinyin.compat</tt></a>
+  <a name="pywin"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/Pythonwin/pywin/__init__.py" type="text/plain"><tt>pywin</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imported by:
+    <a href="#pywin.dialogs">pywin.dialogs</a>
+ &#8226;   <a href="#pywin.mfc">pywin.mfc</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="pywin.dialogs"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/Pythonwin/pywin/dialogs/__init__.py" type="text/plain"><tt>pywin.dialogs</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#pywin">pywin</a>
+ &#8226;   <a href="#pywin.dialogs.status">pywin.dialogs.status</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#pywin.dialogs.list">pywin.dialogs.list</a>
+ &#8226;   <a href="#pywin.dialogs.status">pywin.dialogs.status</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="pywin.dialogs.list"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/Pythonwin/pywin/dialogs/list.py" type="text/plain"><tt>pywin.dialogs.list</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
+    <a href="#commctrl">commctrl</a>
+ &#8226;   <a href="#pywin.dialogs">pywin.dialogs</a>
+ &#8226;   <a href="#pywin.mfc">pywin.mfc</a>
+ &#8226;   <a href="#pywin.mfc.dialog">pywin.mfc.dialog</a>
+ &#8226;   <a href="#win32api">win32api</a>
+ &#8226;   <a href="#win32con">win32con</a>
+ &#8226;   <a href="#win32ui">win32ui</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.client.selecttlb">win32com.client.selecttlb</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="pywin.dialogs.status"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/Pythonwin/pywin/dialogs/status.py" type="text/plain"><tt>pywin.dialogs.status</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pywin.dialogs">pywin.dialogs</a>
+ &#8226;   <a href="#pywin.mfc">pywin.mfc</a>
+ &#8226;   <a href="#pywin.mfc.dialog">pywin.mfc.dialog</a>
+ &#8226;   <a href="#pywin.mfc.thread">pywin.mfc.thread</a>
+ &#8226;   <a href="#threading">threading</a>
+ &#8226;   <a href="#time">time</a>
+ &#8226;   <a href="#win32api">win32api</a>
+ &#8226;   <a href="#win32con">win32con</a>
+ &#8226;   <a href="#win32ui">win32ui</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#pywin.dialogs">pywin.dialogs</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="pywin.mfc"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/Pythonwin/pywin/mfc/__init__.py" type="text/plain"><tt>pywin.mfc</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#pywin">pywin</a>
+ &#8226;   <a href="#pywin.mfc">pywin.mfc</a>
+ &#8226;   <a href="#pywin.mfc.dialog">pywin.mfc.dialog</a>
+ &#8226;   <a href="#pywin.mfc.object">pywin.mfc.object</a>
+ &#8226;   <a href="#pywin.mfc.window">pywin.mfc.window</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#pywin.dialogs.list">pywin.dialogs.list</a>
+ &#8226;   <a href="#pywin.dialogs.status">pywin.dialogs.status</a>
+ &#8226;   <a href="#pywin.mfc">pywin.mfc</a>
+ &#8226;   <a href="#pywin.mfc.dialog">pywin.mfc.dialog</a>
+ &#8226;   <a href="#pywin.mfc.object">pywin.mfc.object</a>
+ &#8226;   <a href="#pywin.mfc.thread">pywin.mfc.thread</a>
+ &#8226;   <a href="#pywin.mfc.window">pywin.mfc.window</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="pywin.mfc.dialog"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/Pythonwin/pywin/mfc/dialog.py" type="text/plain"><tt>pywin.mfc.dialog</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pywin.mfc">pywin.mfc</a>
+ &#8226;   <a href="#pywin.mfc.window">pywin.mfc.window</a>
+ &#8226;   <a href="#win32con">win32con</a>
+ &#8226;   <a href="#win32ui">win32ui</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#pywin.dialogs.list">pywin.dialogs.list</a>
+ &#8226;   <a href="#pywin.dialogs.status">pywin.dialogs.status</a>
+ &#8226;   <a href="#pywin.mfc">pywin.mfc</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="pywin.mfc.object"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/Pythonwin/pywin/mfc/object.py" type="text/plain"><tt>pywin.mfc.object</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pywin.mfc">pywin.mfc</a>
+ &#8226;   <a href="#win32ui">win32ui</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#pywin.mfc">pywin.mfc</a>
+ &#8226;   <a href="#pywin.mfc.thread">pywin.mfc.thread</a>
+ &#8226;   <a href="#pywin.mfc.window">pywin.mfc.window</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="pywin.mfc.thread"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/Pythonwin/pywin/mfc/thread.py" type="text/plain"><tt>pywin.mfc.thread</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pywin.mfc">pywin.mfc</a>
+ &#8226;   <a href="#pywin.mfc.object">pywin.mfc.object</a>
+ &#8226;   <a href="#win32ui">win32ui</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#pywin.dialogs.status">pywin.dialogs.status</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="pywin.mfc.window"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/Pythonwin/pywin/mfc/window.py" type="text/plain"><tt>pywin.mfc.window</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pywin.mfc">pywin.mfc</a>
+ &#8226;   <a href="#pywin.mfc.object">pywin.mfc.object</a>
+ &#8226;   <a href="#win32con">win32con</a>
+ &#8226;   <a href="#win32ui">win32ui</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#pywin.mfc">pywin.mfc</a>
+ &#8226;   <a href="#pywin.mfc.dialog">pywin.mfc.dialog</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="pywin32_system32"></a>
+  <a target="code" href="-" type="text/plain"><tt>pywin32_system32</tt></a>
+<span class="moduletype">NamespacePackage</span>  <div class="import">
+imported by:
+    <a href="#pywintypes">pywintypes</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="pywintypes"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32/lib/pywintypes.py" type="text/plain"><tt>pywintypes</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#_win32sysloader">_win32sysloader</a>
+ &#8226;   <a href="#importlib.machinery">importlib.machinery</a>
+ &#8226;   <a href="#importlib.util">importlib.util</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pywin32_system32">pywin32_system32</a>
  &#8226;   <a href="#sys">sys</a>
 
   </div>
   <div class="import">
 imported by:
-    <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.converter">pypinyin.converter</a>
- &#8226;   <a href="#pypinyin.core">pypinyin.core</a>
- &#8226;   <a href="#pypinyin.seg.simpleseg">pypinyin.seg.simpleseg</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.constants"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/constants.py" type="text/plain"><tt>pypinyin.constants</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#enum">enum</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.compat">pypinyin.compat</a>
- &#8226;   <a href="#pypinyin.phrases_dict">pypinyin.phrases_dict</a>
- &#8226;   <a href="#pypinyin.pinyin_dict">pypinyin.pinyin_dict</a>
- &#8226;   <a href="#re">re</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.converter">pypinyin.converter</a>
- &#8226;   <a href="#pypinyin.core">pypinyin.core</a>
- &#8226;   <a href="#pypinyin.seg.mmseg">pypinyin.seg.mmseg</a>
- &#8226;   <a href="#pypinyin.seg.simpleseg">pypinyin.seg.simpleseg</a>
- &#8226;   <a href="#pypinyin.style.bopomofo">pypinyin.style.bopomofo</a>
- &#8226;   <a href="#pypinyin.style.cyrillic">pypinyin.style.cyrillic</a>
- &#8226;   <a href="#pypinyin.style.finals">pypinyin.style.finals</a>
- &#8226;   <a href="#pypinyin.style.gwoyeu">pypinyin.style.gwoyeu</a>
- &#8226;   <a href="#pypinyin.style.initials">pypinyin.style.initials</a>
- &#8226;   <a href="#pypinyin.style.others">pypinyin.style.others</a>
- &#8226;   <a href="#pypinyin.style.tone">pypinyin.style.tone</a>
- &#8226;   <a href="#pypinyin.style.wadegiles">pypinyin.style.wadegiles</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.contrib"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/contrib/__init__.py" type="text/plain"><tt>pypinyin.contrib</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#pypinyin">pypinyin</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.contrib._tone_rule">pypinyin.contrib._tone_rule</a>
- &#8226;   <a href="#pypinyin.contrib.neutral_tone">pypinyin.contrib.neutral_tone</a>
- &#8226;   <a href="#pypinyin.contrib.tone_convert">pypinyin.contrib.tone_convert</a>
- &#8226;   <a href="#pypinyin.contrib.tone_sandhi">pypinyin.contrib.tone_sandhi</a>
- &#8226;   <a href="#pypinyin.contrib.uv">pypinyin.contrib.uv</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.contrib._tone_rule"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/contrib/_tone_rule.py" type="text/plain"><tt>pypinyin.contrib._tone_rule</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.contrib">pypinyin.contrib</a>
- &#8226;   <a href="#pypinyin.style._tone_rule">pypinyin.style._tone_rule</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.contrib.neutral_tone">pypinyin.contrib.neutral_tone</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.contrib.neutral_tone"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/contrib/neutral_tone.py" type="text/plain"><tt>pypinyin.contrib.neutral_tone</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.contrib">pypinyin.contrib</a>
- &#8226;   <a href="#pypinyin.contrib._tone_rule">pypinyin.contrib._tone_rule</a>
- &#8226;   <a href="#re">re</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.converter">pypinyin.converter</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.contrib.tone_convert"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/contrib/tone_convert.py" type="text/plain"><tt>pypinyin.contrib.tone_convert</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.contrib">pypinyin.contrib</a>
- &#8226;   <a href="#pypinyin.style._tone_convert">pypinyin.style._tone_convert</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.contrib.tone_sandhi">pypinyin.contrib.tone_sandhi</a>
- &#8226;   <a href="#pypinyin.core">pypinyin.core</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.contrib.tone_sandhi"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/contrib/tone_sandhi.py" type="text/plain"><tt>pypinyin.contrib.tone_sandhi</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.contrib">pypinyin.contrib</a>
- &#8226;   <a href="#pypinyin.contrib.tone_convert">pypinyin.contrib.tone_convert</a>
- &#8226;   <a href="#re">re</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.converter">pypinyin.converter</a>
- &#8226;   <a href="#pypinyin.core">pypinyin.core</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.contrib.uv"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/contrib/uv.py" type="text/plain"><tt>pypinyin.contrib.uv</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.contrib">pypinyin.contrib</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.converter">pypinyin.converter</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.converter"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/converter.py" type="text/plain"><tt>pypinyin.converter</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#copy">copy</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.compat">pypinyin.compat</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.contrib.neutral_tone">pypinyin.contrib.neutral_tone</a>
- &#8226;   <a href="#pypinyin.contrib.tone_sandhi">pypinyin.contrib.tone_sandhi</a>
- &#8226;   <a href="#pypinyin.contrib.uv">pypinyin.contrib.uv</a>
- &#8226;   <a href="#pypinyin.exceptions">pypinyin.exceptions</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.utils">pypinyin.utils</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.core">pypinyin.core</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.core"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/core.py" type="text/plain"><tt>pypinyin.core</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#itertools">itertools</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.compat">pypinyin.compat</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.contrib.tone_convert">pypinyin.contrib.tone_convert</a>
- &#8226;   <a href="#pypinyin.contrib.tone_sandhi">pypinyin.contrib.tone_sandhi</a>
- &#8226;   <a href="#pypinyin.converter">pypinyin.converter</a>
- &#8226;   <a href="#pypinyin.seg">pypinyin.seg</a>
- &#8226;   <a href="#pypinyin.seg.mmseg">pypinyin.seg.mmseg</a>
- &#8226;   <a href="#pypinyin.seg.simpleseg">pypinyin.seg.simpleseg</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin">pypinyin</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.exceptions"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/exceptions.py" type="text/plain"><tt>pypinyin.exceptions</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.converter">pypinyin.converter</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.phonetic_symbol"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/phonetic_symbol.py" type="text/plain"><tt>pypinyin.phonetic_symbol</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.style._constants">pypinyin.style._constants</a>
- &#8226;   <a href="#pypinyin.style._tone_convert">pypinyin.style._tone_convert</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.phrases_dict"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/phrases_dict.py" type="text/plain"><tt>pypinyin.phrases_dict</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#codecs">codecs</a>
- &#8226;   <a href="#json">json</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.pinyin_dict"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/pinyin_dict.py" type="text/plain"><tt>pypinyin.pinyin_dict</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#codecs">codecs</a>
- &#8226;   <a href="#json">json</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.seg"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/seg/__init__.py" type="text/plain"><tt>pypinyin.seg</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.seg.mmseg">pypinyin.seg.mmseg</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.core">pypinyin.core</a>
- &#8226;   <a href="#pypinyin.seg.mmseg">pypinyin.seg.mmseg</a>
- &#8226;   <a href="#pypinyin.seg.simpleseg">pypinyin.seg.simpleseg</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.seg.mmseg"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/seg/mmseg.py" type="text/plain"><tt>pypinyin.seg.mmseg</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.seg">pypinyin.seg</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.core">pypinyin.core</a>
- &#8226;   <a href="#pypinyin.seg">pypinyin.seg</a>
- &#8226;   <a href="#pypinyin.seg.simpleseg">pypinyin.seg.simpleseg</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.seg.simpleseg"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/seg/simpleseg.py" type="text/plain"><tt>pypinyin.seg.simpleseg</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#itertools">itertools</a>
- &#8226;   <a href="#pypinyin.compat">pypinyin.compat</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.seg">pypinyin.seg</a>
- &#8226;   <a href="#pypinyin.seg.mmseg">pypinyin.seg.mmseg</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.core">pypinyin.core</a>
- &#8226;   <a href="#pypinyin.utils">pypinyin.utils</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.standard"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/standard.py" type="text/plain"><tt>pypinyin.standard</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.style._constants">pypinyin.style._constants</a>
- &#8226;   <a href="#re">re</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.style._utils">pypinyin.style._utils</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.style"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/style/__init__.py" type="text/plain"><tt>pypinyin.style</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#functools">functools</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style.bopomofo">pypinyin.style.bopomofo</a>
- &#8226;   <a href="#pypinyin.style.cyrillic">pypinyin.style.cyrillic</a>
- &#8226;   <a href="#pypinyin.style.finals">pypinyin.style.finals</a>
- &#8226;   <a href="#pypinyin.style.gwoyeu">pypinyin.style.gwoyeu</a>
- &#8226;   <a href="#pypinyin.style.initials">pypinyin.style.initials</a>
- &#8226;   <a href="#pypinyin.style.others">pypinyin.style.others</a>
- &#8226;   <a href="#pypinyin.style.tone">pypinyin.style.tone</a>
- &#8226;   <a href="#pypinyin.style.wadegiles">pypinyin.style.wadegiles</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.converter">pypinyin.converter</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style._constants">pypinyin.style._constants</a>
- &#8226;   <a href="#pypinyin.style._tone_convert">pypinyin.style._tone_convert</a>
- &#8226;   <a href="#pypinyin.style._tone_rule">pypinyin.style._tone_rule</a>
- &#8226;   <a href="#pypinyin.style._utils">pypinyin.style._utils</a>
- &#8226;   <a href="#pypinyin.style.bopomofo">pypinyin.style.bopomofo</a>
- &#8226;   <a href="#pypinyin.style.cyrillic">pypinyin.style.cyrillic</a>
- &#8226;   <a href="#pypinyin.style.finals">pypinyin.style.finals</a>
- &#8226;   <a href="#pypinyin.style.gwoyeu">pypinyin.style.gwoyeu</a>
- &#8226;   <a href="#pypinyin.style.initials">pypinyin.style.initials</a>
- &#8226;   <a href="#pypinyin.style.others">pypinyin.style.others</a>
- &#8226;   <a href="#pypinyin.style.tone">pypinyin.style.tone</a>
- &#8226;   <a href="#pypinyin.style.wadegiles">pypinyin.style.wadegiles</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.style._constants"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/style/_constants.py" type="text/plain"><tt>pypinyin.style._constants</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.phonetic_symbol">pypinyin.phonetic_symbol</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#re">re</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.standard">pypinyin.standard</a>
- &#8226;   <a href="#pypinyin.style._tone_convert">pypinyin.style._tone_convert</a>
- &#8226;   <a href="#pypinyin.style._utils">pypinyin.style._utils</a>
- &#8226;   <a href="#pypinyin.style.bopomofo">pypinyin.style.bopomofo</a>
- &#8226;   <a href="#pypinyin.style.cyrillic">pypinyin.style.cyrillic</a>
- &#8226;   <a href="#pypinyin.style.gwoyeu">pypinyin.style.gwoyeu</a>
- &#8226;   <a href="#pypinyin.style.tone">pypinyin.style.tone</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.style._tone_convert"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/style/_tone_convert.py" type="text/plain"><tt>pypinyin.style._tone_convert</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.phonetic_symbol">pypinyin.phonetic_symbol</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style._constants">pypinyin.style._constants</a>
- &#8226;   <a href="#pypinyin.style._tone_rule">pypinyin.style._tone_rule</a>
- &#8226;   <a href="#pypinyin.style._utils">pypinyin.style._utils</a>
- &#8226;   <a href="#pypinyin.style.tone">pypinyin.style.tone</a>
- &#8226;   <a href="#re">re</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.contrib.tone_convert">pypinyin.contrib.tone_convert</a>
- &#8226;   <a href="#pypinyin.style.finals">pypinyin.style.finals</a>
- &#8226;   <a href="#pypinyin.utils">pypinyin.utils</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.style._tone_rule"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/style/_tone_rule.py" type="text/plain"><tt>pypinyin.style._tone_rule</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.contrib._tone_rule">pypinyin.contrib._tone_rule</a>
- &#8226;   <a href="#pypinyin.style._tone_convert">pypinyin.style._tone_convert</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.style._utils"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/style/_utils.py" type="text/plain"><tt>pypinyin.style._utils</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.standard">pypinyin.standard</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style._constants">pypinyin.style._constants</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.style._tone_convert">pypinyin.style._tone_convert</a>
- &#8226;   <a href="#pypinyin.style.bopomofo">pypinyin.style.bopomofo</a>
- &#8226;   <a href="#pypinyin.style.cyrillic">pypinyin.style.cyrillic</a>
- &#8226;   <a href="#pypinyin.style.gwoyeu">pypinyin.style.gwoyeu</a>
- &#8226;   <a href="#pypinyin.style.initials">pypinyin.style.initials</a>
- &#8226;   <a href="#pypinyin.style.others">pypinyin.style.others</a>
- &#8226;   <a href="#pypinyin.style.tone">pypinyin.style.tone</a>
- &#8226;   <a href="#pypinyin.style.wadegiles">pypinyin.style.wadegiles</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.style.bopomofo"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/style/bopomofo.py" type="text/plain"><tt>pypinyin.style.bopomofo</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style._constants">pypinyin.style._constants</a>
- &#8226;   <a href="#pypinyin.style._utils">pypinyin.style._utils</a>
- &#8226;   <a href="#re">re</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.style">pypinyin.style</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.style.cyrillic"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/style/cyrillic.py" type="text/plain"><tt>pypinyin.style.cyrillic</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style._constants">pypinyin.style._constants</a>
- &#8226;   <a href="#pypinyin.style._utils">pypinyin.style._utils</a>
- &#8226;   <a href="#re">re</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.style">pypinyin.style</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.style.finals"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/style/finals.py" type="text/plain"><tt>pypinyin.style.finals</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style._tone_convert">pypinyin.style._tone_convert</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.style">pypinyin.style</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.style.gwoyeu"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/style/gwoyeu.py" type="text/plain"><tt>pypinyin.style.gwoyeu</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style._constants">pypinyin.style._constants</a>
- &#8226;   <a href="#pypinyin.style._utils">pypinyin.style._utils</a>
- &#8226;   <a href="#re">re</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.style">pypinyin.style</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.style.initials"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/style/initials.py" type="text/plain"><tt>pypinyin.style.initials</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style._utils">pypinyin.style._utils</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.style">pypinyin.style</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.style.others"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/style/others.py" type="text/plain"><tt>pypinyin.style.others</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style._utils">pypinyin.style._utils</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.style">pypinyin.style</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.style.tone"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/style/tone.py" type="text/plain"><tt>pypinyin.style.tone</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style._constants">pypinyin.style._constants</a>
- &#8226;   <a href="#pypinyin.style._utils">pypinyin.style._utils</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style._tone_convert">pypinyin.style._tone_convert</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.style.wadegiles"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/style/wadegiles.py" type="text/plain"><tt>pypinyin.style.wadegiles</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.style">pypinyin.style</a>
- &#8226;   <a href="#pypinyin.style._utils">pypinyin.style._utils</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.style">pypinyin.style</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="pypinyin.utils"></a>
-  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/pypinyin/utils.py" type="text/plain"><tt>pypinyin.utils</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#__future__">__future__</a>
- &#8226;   <a href="#pypinyin">pypinyin</a>
- &#8226;   <a href="#pypinyin.seg.simpleseg">pypinyin.seg.simpleseg</a>
- &#8226;   <a href="#pypinyin.style._tone_convert">pypinyin.style._tone_convert</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#pypinyin.converter">pypinyin.converter</a>
+    <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.build">win32com.client.build</a>
+ &#8226;   <a href="#win32com.client.dynamic">win32com.client.dynamic</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
 
   </div>
 
@@ -11908,15 +11496,6 @@ imported by:
  &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#posixpath">posixpath</a>
  &#8226;   <a href="#pprint">pprint</a>
- &#8226;   <a href="#pypinyin.constants">pypinyin.constants</a>
- &#8226;   <a href="#pypinyin.contrib.neutral_tone">pypinyin.contrib.neutral_tone</a>
- &#8226;   <a href="#pypinyin.contrib.tone_sandhi">pypinyin.contrib.tone_sandhi</a>
- &#8226;   <a href="#pypinyin.standard">pypinyin.standard</a>
- &#8226;   <a href="#pypinyin.style._constants">pypinyin.style._constants</a>
- &#8226;   <a href="#pypinyin.style._tone_convert">pypinyin.style._tone_convert</a>
- &#8226;   <a href="#pypinyin.style.bopomofo">pypinyin.style.bopomofo</a>
- &#8226;   <a href="#pypinyin.style.cyrillic">pypinyin.style.cyrillic</a>
- &#8226;   <a href="#pypinyin.style.gwoyeu">pypinyin.style.gwoyeu</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#re._casefix">re._casefix</a>
  &#8226;   <a href="#re._compiler">re._compiler</a>
@@ -12084,7 +11663,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#check_version">check_version</a>
+    <a href="#Extend.check_version">Extend.check_version</a>
  &#8226;   <a href="#requests">requests</a>
  &#8226;   <a href="#requests.__version__">requests.__version__</a>
  &#8226;   <a href="#requests._internal_utils">requests._internal_utils</a>
@@ -12720,6 +12299,7 @@ imported by:
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#webbrowser">webbrowser</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
  &#8226;   <a href="#zipfile">zipfile</a>
 
   </div>
@@ -13008,22 +12588,7 @@ imported by:
  &#8226;   <a href="#ntpath">ntpath</a>
  &#8226;   <a href="#nturl2path">nturl2path</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="string_data"></a>
-  <a target="code" href="///D:/repos/QuickTray/src/string_data.py" type="text/plain"><tt>string_data</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#os">os</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#QuickTray.py">QuickTray.py</a>
+ &#8226;   <a href="#win32com.client.build">win32com.client.build</a>
 
   </div>
 
@@ -13126,9 +12691,9 @@ imported by:
   <a name="sys"></a>
   <tt>sys</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
-    <a href="#PySide6">PySide6</a>
+    <a href="#Extend.QuickTrayExtend">Extend.QuickTrayExtend</a>
+ &#8226;   <a href="#PySide6">PySide6</a>
  &#8226;   <a href="#QuickTray.py">QuickTray.py</a>
- &#8226;   <a href="#QuickTrayExtend">QuickTrayExtend</a>
  &#8226;   <a href="#_collections_abc">_collections_abc</a>
  &#8226;   <a href="#_compression">_compression</a>
  &#8226;   <a href="#_pydecimal">_pydecimal</a>
@@ -13215,8 +12780,10 @@ imported by:
  &#8226;   <a href="#pyi_rth_inspect.py">pyi_rth_inspect.py</a>
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
  &#8226;   <a href="#pyi_rth_pyside6.py">pyi_rth_pyside6.py</a>
+ &#8226;   <a href="#pyi_rth_pythoncom.py">pyi_rth_pythoncom.py</a>
+ &#8226;   <a href="#pyi_rth_pywintypes.py">pyi_rth_pywintypes.py</a>
  &#8226;   <a href="#pyperclip">pyperclip</a>
- &#8226;   <a href="#pypinyin.compat">pypinyin.compat</a>
+ &#8226;   <a href="#pywintypes">pywintypes</a>
  &#8226;   <a href="#quopri">quopri</a>
  &#8226;   <a href="#re._compiler">re._compiler</a>
  &#8226;   <a href="#requests.compat">requests.compat</a>
@@ -13250,6 +12817,14 @@ imported by:
  &#8226;   <a href="#warnings">warnings</a>
  &#8226;   <a href="#weakref">weakref</a>
  &#8226;   <a href="#webbrowser">webbrowser</a>
+ &#8226;   <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.client.genpy">win32com.client.genpy</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
+ &#8226;   <a href="#win32com.server.exception">win32com.server.exception</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
+ &#8226;   <a href="#win32traceutil">win32traceutil</a>
  &#8226;   <a href="#xml.parsers.expat">xml.parsers.expat</a>
  &#8226;   <a href="#xml.sax">xml.sax</a>
  &#8226;   <a href="#xml.sax._exceptions">xml.sax._exceptions</a>
@@ -13412,6 +12987,7 @@ imported by:
  &#8226;   <a href="#multiprocessing.util">multiprocessing.util</a>
  &#8226;   <a href="#psutil">psutil</a>
  &#8226;   <a href="#psutil._common">psutil._common</a>
+ &#8226;   <a href="#pywin.dialogs.status">pywin.dialogs.status</a>
  &#8226;   <a href="#queue">queue</a>
  &#8226;   <a href="#requests.auth">requests.auth</a>
  &#8226;   <a href="#requests.cookies">requests.cookies</a>
@@ -13460,6 +13036,7 @@ imported by:
  &#8226;   <a href="#psutil">psutil</a>
  &#8226;   <a href="#psutil._pswindows">psutil._pswindows</a>
  &#8226;   <a href="#pyperclip">pyperclip</a>
+ &#8226;   <a href="#pywin.dialogs.status">pywin.dialogs.status</a>
  &#8226;   <a href="#queue">queue</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#requests.auth">requests.auth</a>
@@ -13472,6 +13049,7 @@ imported by:
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#urllib3.util.retry">urllib3.util.retry</a>
  &#8226;   <a href="#urllib3.util.timeout">urllib3.util.timeout</a>
+ &#8226;   <a href="#win32com.client.genpy">win32com.client.genpy</a>
  &#8226;   <a href="#xmlrpc.client">xmlrpc.client</a>
  &#8226;   <a href="#zipfile">zipfile</a>
  &#8226;   <a href="#zipimport">zipimport</a>
@@ -13554,6 +13132,8 @@ imported by:
  &#8226;   <a href="#shiboken6">shiboken6</a>
  &#8226;   <a href="#threading">threading</a>
  &#8226;   <a href="#warnings">warnings</a>
+ &#8226;   <a href="#win32com.client.dynamic">win32com.client.dynamic</a>
+ &#8226;   <a href="#win32com.server.dispatcher">win32com.server.dispatcher</a>
 
   </div>
 
@@ -13639,6 +13219,10 @@ imported by:
  &#8226;   <a href="#urllib3.poolmanager">urllib3.poolmanager</a>
  &#8226;   <a href="#urllib3.util.retry">urllib3.util.retry</a>
  &#8226;   <a href="#urllib3.util.util">urllib3.util.util</a>
+ &#8226;   <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.client.dynamic">win32com.client.dynamic</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
 
   </div>
 
@@ -13737,6 +13321,8 @@ imported by:
  &#8226;   <a href="#urllib3.util.timeout">urllib3.util.timeout</a>
  &#8226;   <a href="#urllib3.util.url">urllib3.util.url</a>
  &#8226;   <a href="#urllib3.util.util">urllib3.util.util</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.server.dispatcher">win32com.server.dispatcher</a>
  &#8226;   <a href="#zstandard">zstandard</a>
 
   </div>
@@ -15120,6 +14706,7 @@ imported by:
  &#8226;   <a href="#urllib3.response">urllib3.response</a>
  &#8226;   <a href="#urllib3.util.ssl_">urllib3.util.ssl_</a>
  &#8226;   <a href="#webbrowser">webbrowser</a>
+ &#8226;   <a href="#winerror">winerror</a>
  &#8226;   <a href="#zipfile">zipfile</a>
 
   </div>
@@ -15190,6 +14777,549 @@ imports:
   <div class="import">
 imported by:
     <a href="#QuickTray.py">QuickTray.py</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32api"></a>
+  <tt>win32api</tt> <span class="moduletype"><tt>D:\venvs\.PySide6\Lib\site-packages\win32\win32api.pyd</tt></span>  <div class="import">
+imported by:
+    <a href="#pywin.dialogs.list">pywin.dialogs.list</a>
+ &#8226;   <a href="#pywin.dialogs.status">pywin.dialogs.status</a>
+ &#8226;   <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.client.selecttlb">win32com.client.selecttlb</a>
+ &#8226;   <a href="#win32com.server.dispatcher">win32com.server.dispatcher</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
+ &#8226;   <a href="#win32com.util">win32com.util</a>
+ &#8226;   <a href="#win32traceutil">win32traceutil</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/__init__.py" type="text/plain"><tt>win32com</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#'win32com.gen_py'">'win32com.gen_py'</a>
+ &#8226;   <a href="#__future__">__future__</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#types">types</a>
+ &#8226;   <a href="#win32api">win32api</a>
+ &#8226;   <a href="#win32com.client.util">win32com.client.util</a>
+ &#8226;   <a href="#win32com.server.util">win32com.server.util</a>
+ &#8226;   <a href="#win32com.universal">win32com.universal</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.server">win32com.server</a>
+ &#8226;   <a href="#win32com.server.dispatcher">win32com.server.dispatcher</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
+ &#8226;   <a href="#win32com.universal">win32com.universal</a>
+ &#8226;   <a href="#win32com.util">win32com.util</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.client"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/client/__init__.py" type="text/plain"><tt>win32com.client</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#pywintypes">pywintypes</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.CLSIDToClass">win32com.client.CLSIDToClass</a>
+ &#8226;   <a href="#win32com.client.build">win32com.client.build</a>
+ &#8226;   <a href="#win32com.client.dynamic">win32com.client.dynamic</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.client.genpy">win32com.client.genpy</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
+ &#8226;   <a href="#win32com.client.selecttlb">win32com.client.selecttlb</a>
+ &#8226;   <a href="#win32com.client.util">win32com.client.util</a>
+ &#8226;   <a href="#winerror">winerror</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#QuickTray.py">QuickTray.py</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.CLSIDToClass">win32com.client.CLSIDToClass</a>
+ &#8226;   <a href="#win32com.client.build">win32com.client.build</a>
+ &#8226;   <a href="#win32com.client.dynamic">win32com.client.dynamic</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.client.genpy">win32com.client.genpy</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
+ &#8226;   <a href="#win32com.client.selecttlb">win32com.client.selecttlb</a>
+ &#8226;   <a href="#win32com.client.util">win32com.client.util</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
+ &#8226;   <a href="#win32com.universal">win32com.universal</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.client.CLSIDToClass"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/client/CLSIDToClass.py" type="text/plain"><tt>win32com.client.CLSIDToClass</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.client.build"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/client/build.py" type="text/plain"><tt>win32com.client.build</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#builtins">builtins</a>
+ &#8226;   <a href="#datetime">datetime</a>
+ &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#keyword">keyword</a>
+ &#8226;   <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#pywintypes">pywintypes</a>
+ &#8226;   <a href="#string">string</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#winerror">winerror</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.dynamic">win32com.client.dynamic</a>
+ &#8226;   <a href="#win32com.client.genpy">win32com.client.genpy</a>
+ &#8226;   <a href="#win32com.universal">win32com.universal</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.client.dynamic"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/client/dynamic.py" type="text/plain"><tt>win32com.client.dynamic</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#itertools">itertools</a>
+ &#8226;   <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#pywintypes">pywintypes</a>
+ &#8226;   <a href="#traceback">traceback</a>
+ &#8226;   <a href="#types">types</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.build">win32com.client.build</a>
+ &#8226;   <a href="#win32com.client.util">win32com.client.util</a>
+ &#8226;   <a href="#winerror">winerror</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.client">win32com.client</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.client.gencache"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/client/gencache.py" type="text/plain"><tt>win32com.client.gencache</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#getopt">getopt</a>
+ &#8226;   <a href="#glob">glob</a>
+ &#8226;   <a href="#importlib">importlib</a>
+ &#8226;   <a href="#io">io</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pickle">pickle</a>
+ &#8226;   <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#pywintypes">pywintypes</a>
+ &#8226;   <a href="#shutil">shutil</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#types">types</a>
+ &#8226;   <a href="#typing">typing</a>
+ &#8226;   <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.CLSIDToClass">win32com.client.CLSIDToClass</a>
+ &#8226;   <a href="#win32com.client.genpy">win32com.client.genpy</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
+ &#8226;   <a href="#win32event">win32event</a>
+ &#8226;   <a href="#zipfile">zipfile</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.genpy">win32com.client.genpy</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
+ &#8226;   <a href="#win32com.universal">win32com.universal</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.client.genpy"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/client/genpy.py" type="text/plain"><tt>win32com.client.genpy</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#itertools">itertools</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#time">time</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.build">win32com.client.build</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.client.makepy"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/client/makepy.py" type="text/plain"><tt>win32com.client.makepy</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#getopt">getopt</a>
+ &#8226;   <a href="#importlib">importlib</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#pywin">pywin</a>
+ &#8226;   <a href="#pywin.dialogs">pywin.dialogs</a>
+ &#8226;   <a href="#pywin.dialogs.status">pywin.dialogs.status</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+ &#8226;   <a href="#win32com.client.genpy">win32com.client.genpy</a>
+ &#8226;   <a href="#win32com.client.selecttlb">win32com.client.selecttlb</a>
+ &#8226;   <a href="#win32ui">win32ui</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.client.selecttlb"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/client/selecttlb.py" type="text/plain"><tt>win32com.client.selecttlb</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#pywin.dialogs.list">pywin.dialogs.list</a>
+ &#8226;   <a href="#win32api">win32api</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32con">win32con</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.client.util"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/client/util.py" type="text/plain"><tt>win32com.client.util</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.dynamic">win32com.client.dynamic</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.server"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/server/__init__.py" type="text/plain"><tt>win32com.server</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.server">win32com.server</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.server">win32com.server</a>
+ &#8226;   <a href="#win32com.server.dispatcher">win32com.server.dispatcher</a>
+ &#8226;   <a href="#win32com.server.exception">win32com.server.exception</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
+ &#8226;   <a href="#win32com.server.util">win32com.server.util</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.server.dispatcher"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/server/dispatcher.py" type="text/plain"><tt>win32com.server.dispatcher</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#traceback">traceback</a>
+ &#8226;   <a href="#typing">typing</a>
+ &#8226;   <a href="#win32api">win32api</a>
+ &#8226;   <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.server">win32com.server</a>
+ &#8226;   <a href="#win32com.server.exception">win32com.server.exception</a>
+ &#8226;   <a href="#win32com.util">win32com.util</a>
+ &#8226;   <a href="#win32trace">win32trace</a>
+ &#8226;   <a href="#win32traceutil">win32traceutil</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.server.util">win32com.server.util</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.server.exception"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/server/exception.py" type="text/plain"><tt>win32com.server.exception</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#win32com.server">win32com.server</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.server.dispatcher">win32com.server.dispatcher</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
+ &#8226;   <a href="#win32com.server.util">win32com.server.util</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.server.policy"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/server/policy.py" type="text/plain"><tt>win32com.server.policy</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#pywintypes">pywintypes</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#types">types</a>
+ &#8226;   <a href="#win32api">win32api</a>
+ &#8226;   <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.server">win32com.server</a>
+ &#8226;   <a href="#win32com.server.exception">win32com.server.exception</a>
+ &#8226;   <a href="#win32com.universal">win32com.universal</a>
+ &#8226;   <a href="#win32com.util">win32com.util</a>
+ &#8226;   <a href="#win32con">win32con</a>
+ &#8226;   <a href="#winerror">winerror</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.server">win32com.server</a>
+ &#8226;   <a href="#win32com.server.util">win32com.server.util</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.server.util"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/server/util.py" type="text/plain"><tt>win32com.server.util</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#win32com.server">win32com.server</a>
+ &#8226;   <a href="#win32com.server.dispatcher">win32com.server.dispatcher</a>
+ &#8226;   <a href="#win32com.server.exception">win32com.server.exception</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
+ &#8226;   <a href="#winerror">winerror</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com">win32com</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.universal"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/universal.py" type="text/plain"><tt>win32com.universal</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.build">win32com.client.build</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32com.util"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32com/util.py" type="text/plain"><tt>win32com.util</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#pythoncom">pythoncom</a>
+ &#8226;   <a href="#win32api">win32api</a>
+ &#8226;   <a href="#win32com">win32com</a>
+ &#8226;   <a href="#win32con">win32con</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.server.dispatcher">win32com.server.dispatcher</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32con"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32/lib/win32con.py" type="text/plain"><tt>win32con</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imported by:
+    <a href="#pywin.dialogs.list">pywin.dialogs.list</a>
+ &#8226;   <a href="#pywin.dialogs.status">pywin.dialogs.status</a>
+ &#8226;   <a href="#pywin.mfc.dialog">pywin.mfc.dialog</a>
+ &#8226;   <a href="#pywin.mfc.window">pywin.mfc.window</a>
+ &#8226;   <a href="#win32com.client.selecttlb">win32com.client.selecttlb</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
+ &#8226;   <a href="#win32com.util">win32com.util</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32event"></a>
+  <tt>win32event</tt> <span class="moduletype"><tt>D:\venvs\.PySide6\Lib\site-packages\win32\win32event.pyd</tt></span>  <div class="import">
+imported by:
+    <a href="#win32com.client.gencache">win32com.client.gencache</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32trace"></a>
+  <tt>win32trace</tt> <span class="moduletype"><tt>D:\venvs\.PySide6\Lib\site-packages\win32\win32trace.pyd</tt></span>  <div class="import">
+imported by:
+    <a href="#win32com.server.dispatcher">win32com.server.dispatcher</a>
+ &#8226;   <a href="#win32traceutil">win32traceutil</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32traceutil"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32/lib/win32traceutil.py" type="text/plain"><tt>win32traceutil</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#sys">sys</a>
+ &#8226;   <a href="#win32api">win32api</a>
+ &#8226;   <a href="#win32trace">win32trace</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.server.dispatcher">win32com.server.dispatcher</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="win32ui"></a>
+  <tt>win32ui</tt> <span class="moduletype"><tt>D:\venvs\.PySide6\Lib\site-packages\Pythonwin\win32ui.pyd</tt></span>  <div class="import">
+imported by:
+    <a href="#pywin.dialogs.list">pywin.dialogs.list</a>
+ &#8226;   <a href="#pywin.dialogs.status">pywin.dialogs.status</a>
+ &#8226;   <a href="#pywin.mfc.dialog">pywin.mfc.dialog</a>
+ &#8226;   <a href="#pywin.mfc.object">pywin.mfc.object</a>
+ &#8226;   <a href="#pywin.mfc.thread">pywin.mfc.thread</a>
+ &#8226;   <a href="#pywin.mfc.window">pywin.mfc.window</a>
+ &#8226;   <a href="#win32com.client.makepy">win32com.client.makepy</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="winerror"></a>
+  <a target="code" href="///D:/venvs/.PySide6/Lib/site-packages/win32/lib/winerror.py" type="text/plain"><tt>winerror</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#warnings">warnings</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#win32com.client">win32com.client</a>
+ &#8226;   <a href="#win32com.client.build">win32com.client.build</a>
+ &#8226;   <a href="#win32com.client.dynamic">win32com.client.dynamic</a>
+ &#8226;   <a href="#win32com.server.policy">win32com.server.policy</a>
+ &#8226;   <a href="#win32com.server.util">win32com.server.util</a>
 
   </div>
 
@@ -15484,6 +15614,7 @@ imported by:
  &#8226;   <a href="#requests.utils">requests.utils</a>
  &#8226;   <a href="#shiboken6">shiboken6</a>
  &#8226;   <a href="#shutil">shutil</a>
+ &#8226;   <a href="#win32com.client.gencache">win32com.client.gencache</a>
 
   </div>
 
