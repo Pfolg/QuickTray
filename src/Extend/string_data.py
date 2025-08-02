@@ -11,12 +11,17 @@ import os
 from dataclasses import dataclass, field
 
 
+def locate_assets_files(file):
+    assets = "assets"
+    return os.path.join(assets, file)
+
+
 class Data:
     app_name = "Quick Tray"
     bing = "https://cn.bing.com/search?q={}"
-    version = "ver1.12.0-20250730"
+    version = "ver1.12.1-dev"
     website = "https://github.com/Pfolg/QuickTray"
-    start_link = "%AppData%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Quick Tray.lnk"
+    start_link = os.path.expandvars("%AppData%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Quick Tray.lnk")
     user_folder = "app_config"
     config_file = os.path.join(user_folder, "basic_config.json")  # user_folder + "/basic_config.json"
     lines_file = os.path.join(user_folder, "lines.json")
@@ -27,23 +32,23 @@ class Data:
     string_off = "off"
 
     asset_folder = "assets"
-    picture_windows = os.path.join(asset_folder, "windows.png")
-    picture_preferences_other = os.path.join(asset_folder, "preferences-other.ico")
-    picture_power_off = os.path.join(asset_folder, "power-off.svg")
-    picture_circle_question = os.path.join(asset_folder, "circle-question.svg")
-    picture_circle_exclamation = os.path.join(asset_folder, "circle-exclamation.svg")
-    picture_github = os.path.join(asset_folder, "github.svg")
-    picture_heading = os.path.join(asset_folder, "heading.svg")
-    picture_search = os.path.join(asset_folder, "preferences-desktop-search.ico")
-    picture_star = os.path.join(asset_folder, "preferences-desktop-default-applications.ico")
-    picture_app = os.path.join(asset_folder, "applications-all.ico")
-    picture_link = os.path.join(asset_folder, "applications-internet.ico")
-    picture_scripts = os.path.join(asset_folder, "application-vnd.nokia.xml.qt.resource.ico")
+    picture_windows = locate_assets_files("windows.png")
+    picture_preferences_other = locate_assets_files("preferences-other.ico")
+    picture_power_off = locate_assets_files("power-off.svg")
+    picture_circle_question = locate_assets_files("circle-question.svg")
+    picture_circle_exclamation = locate_assets_files("circle-exclamation.svg")
+    picture_github = locate_assets_files("github.svg")
+    picture_heading = locate_assets_files("heading.svg")
+    picture_search = locate_assets_files("preferences-desktop-search.ico")
+    picture_star = locate_assets_files("preferences-desktop-default-applications.ico")
+    picture_app = locate_assets_files("applications-all.ico")
+    picture_link = locate_assets_files("applications-internet.ico")
+    picture_scripts = locate_assets_files("application-vnd.nokia.xml.qt.resource.ico")
     picture_c_star = None
     picture_c_app = None
-    picture_c_link = os.path.join(asset_folder, "arrow-up-right-from-square.svg")
-    picture_c_scripts = os.path.join(asset_folder, "code.svg")
-    picture_luabackend = os.path.join(asset_folder, "luabackend.ico")
+    picture_c_link = locate_assets_files("arrow-up-right-from-square.svg")
+    picture_c_scripts = locate_assets_files("code.svg")
+    picture_luabackend = locate_assets_files("luabackend.ico")
 
     font_myu = "Microsoft YaHei UI"
     font_mmnc = "Maple Mono NF CN"
@@ -69,7 +74,7 @@ class LanguageFormat:
     string_folder_program: str = "Program\'s folder"
     string_u_menu: str = "Update menus"
     string_c_update: str = "Check update"
-    string_change_language: str = "Change Language"
+    string_change_language: str = "Language"
     language_en: str = "English"
     language_zh: str = "Chinese"
     language_changed_tip: str = "The changes can only be fully applied after a restart"
@@ -113,7 +118,7 @@ Language_ZH = LanguageFormat(
     string_folder_program="打开目录",
     string_u_menu="刷新菜单",
     string_c_update="检查更新",
-    string_change_language="切换语言",
+    string_change_language="语言",
     language_en="英语",
     language_zh="中文",
     language_changed_tip="重启后才能完全应用更改",

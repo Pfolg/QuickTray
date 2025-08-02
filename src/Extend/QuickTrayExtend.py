@@ -19,6 +19,12 @@ app_folder = "app_config"
 if not os.path.exists(app_folder):
     app_folder = "..\\app_config"
 config_files = os.listdir(app_folder)
+file1 = "basic_config.json"
+file2 = "applist.json"
+file3 = "lines.json"
+config_files_dict = {}
+for f_item in config_files:
+    config_files_dict[f_item] = f_item
 
 
 # 读取屏幕长宽
@@ -86,8 +92,15 @@ class EWidget(QWidget):
         special_keys3 = ["logo"]
 
         try:
-            file = config_files[1]
-            fp = app_folder + "/" + file
+            file = config_files_dict.get(file1)
+            if not file:
+                QMessageBox.critical(
+                    self,
+                    "Error",
+                    f"\"{file1}\" not found, return"
+                )
+                return
+            fp = os.path.join(app_folder, file)
             tab = self.tabs[file]
             with open(fp, "r", encoding="utf-8") as file:
                 org_data: dict = json.load(file)
@@ -179,12 +192,24 @@ class EWidget(QWidget):
 
         except Exception as e:
             print(e)
+            QMessageBox.critical(
+                self,
+                "Error",
+                str(e),
+            )
             return
 
     def control_lines(self):
         try:
-            file = config_files[2]
-            fp = app_folder + "/" + file
+            file = config_files_dict.get(file3)
+            if not file:
+                QMessageBox.critical(
+                    self,
+                    "Error",
+                    f"\"{file3}\" not found, return"
+                )
+                return
+            fp = os.path.join(app_folder, file)
             tab = self.tabs[file]
 
             label = QLabel(self._string_sentence, tab)
@@ -242,6 +267,11 @@ class EWidget(QWidget):
 
         except Exception as e:
             print(e)
+            QMessageBox.critical(
+                self,
+                "Error",
+                str(e),
+            )
             return
 
     @staticmethod
@@ -300,8 +330,15 @@ class EWidget(QWidget):
     def control_applist(self):
         # ["star", "app", "link", "scripts"]
         try:
-            file = config_files[0]
-            fp = app_folder + "/" + file
+            file = config_files_dict.get(file2)
+            if not file:
+                QMessageBox.critical(
+                    self,
+                    "Error",
+                    f"\"{file2}\" not found, return"
+                )
+                return
+            fp = os.path.join(app_folder, file)
             tab = self.tabs[file]
             with open(fp, "r", encoding="utf-8") as f:
                 origin_data: list[dict] = json.load(f)
@@ -362,6 +399,11 @@ class EWidget(QWidget):
             view.setGeometry(20, 180, 360, 80)
         except Exception as e:
             print(e)
+            QMessageBox.critical(
+                self,
+                "Error",
+                str(e),
+            )
             return
 
 

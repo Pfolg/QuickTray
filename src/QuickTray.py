@@ -213,7 +213,7 @@ class Tray(QSystemTrayIcon):
             delete_shortcut(Data.start_link)
 
         self.self_start.setText(self.language.self_start_on if os.path.exists(
-            os.path.expandvars(Data.start_link)) else self.language.self_start_off)
+            Data.start_link) else self.language.self_start_off)
 
     def setMenuLanguage(self):
         self.menu_setting.setTitle(self.language.string_setting)
@@ -258,7 +258,7 @@ class Tray(QSystemTrayIcon):
         self.self_start.triggered.connect(self.shortcut_option)
         self.action_quit.triggered.connect(sys.exit)
         self.action_update.triggered.connect(check_update)
-        self.action_website.triggered.connect(lambda: self.openTarget(website))
+        self.action_website.triggered.connect(lambda: self.openTarget(Data.website))
         # 更新标签
         self.action_updateText.triggered.connect(lambda: TextLabel.textGetSet())
         # 复制文本
@@ -420,7 +420,7 @@ class Tray(QSystemTrayIcon):
         item_num = len(self.readSetting())
         help_run = Data.string_on if appConfig.get("autorun") else Data.string_off
         self.setToolTip(
-            f"{appConfig.get('tip')}\n{version}\n{Data.s_tool_Items} {item_num}\n{'autorun'}: {help_run}")
+            f"{appConfig.get('tip')}\n{Data.version}\n{Data.s_tool_Items} {item_num}\n{'autorun'}: {help_run}")
         self.setIcon(QIcon(appConfig.get("logo")))
 
 
@@ -465,7 +465,6 @@ def makeShortcut(
             shell = win32com.client.Dispatch("WScript.Shell")
 
             # 指定快捷方式保存的位置和名称
-            pathName = os.path.expandvars(pathName)
             icoPath = os.path.join(getDirName(), icoPath)
             # 删除可能存在的快捷方式
             if os.path.exists(pathName):
@@ -503,7 +502,6 @@ def makeShortcut(
 
 def delete_shortcut(path):
     _msg = app_language.tip_delete_shortcut_success
-    path = os.path.expandvars(path)
     try:
         if os.path.exists(path):
             os.remove(path)
@@ -516,7 +514,7 @@ def delete_shortcut(path):
 
 
 def check_update():
-    b, flag = check_version_match(version)
+    b, flag = check_version_match(Data.version)
     if b:
         tray.showMessage(
             Data.app_name,
@@ -537,7 +535,7 @@ def read_config_json() -> dict:
             print("your config is empty, rewrite……")
             config = setup_config_json()
         config["usecount"] += 1
-        config["version"] = version
+        config["version"] = Data.version
         with open(config_file, "w", encoding="utf-8") as file2:
             json.dump(config, file2, indent=4, ensure_ascii=False)
         print("config Changed!")
@@ -549,7 +547,7 @@ def read_config_json() -> dict:
 def setup_config_json() -> dict:
     config = {
         "tip": Data.app_name,
-        "version": version,
+        "version": Data.version,
         "logo": Data.picture_luabackend,
         "usecount": 0,
         "port": Data.port,
@@ -597,14 +595,11 @@ def single_instance(port: int):
 
 
 if __name__ == '__main__':
-    version = Data.version
-    website = Data.website
-    user_folder = Data.user_folder
     config_file = Data.config_file
     lines_file = Data.lines_file
     appList_file = Data.appList_file
-    if not os.path.exists(user_folder):
-        os.mkdir(user_folder)
+    if not os.path.exists(Data.user_folder):
+        os.mkdir(Data.user_folder)
     # 是否正在测试
     isTest = True
     # 读取配置
