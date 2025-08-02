@@ -78,4 +78,5 @@ If any materials used in this program infringe your copyright, please contact me
 
 >[!NOTE]
 > Icons from https://github.com/FortAwesome/Font-Awesome
+> 
 > Used [PySide6](https://pypi.org/project/PySide6/), [psutil](https://pypi.org/project/psutil/), [pyperclip](https://pypi.org/project/pyperclip/), [requests](https://pypi.org/project/requests/)
