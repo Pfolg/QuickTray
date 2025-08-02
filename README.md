@@ -74,3 +74,8 @@ If you encounter any issues during use, please don't hesitate to file an Issue. 
 Gratitude to all third-party libraries involved and Python language developers. Apologies for not acknowledging everyone individually! <!-- Will be optimized in future updates -->
 
 If any materials used in this program infringe your copyright, please contact me for removal!
+
+
+>[!NOTE]
+> Icons from https://github.com/FortAwesome/Font-Awesome
+> Used [PySide6](https://pypi.org/project/PySide6/), [psutil](https://pypi.org/project/psutil/), [pyperclip](https://pypi.org/project/pyperclip/), [requests](https://pypi.org/project/requests/)
