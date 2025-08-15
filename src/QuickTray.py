@@ -31,7 +31,7 @@ class SearchBox(QLineEdit):
         super().__init__()
         self.init()
 
-    def search_in_browser(self):
+    def search_in_browser(self) -> None:
         visible = self.isVisible()
         query = self.text()
         if query and visible:
@@ -44,7 +44,7 @@ class SearchBox(QLineEdit):
         self.setText("")
         self.setVisible(False)
 
-    def init(self):
+    def init(self) -> None:
         self.setGeometry(500, 500, 500, 60)
         self.setWindowFlags(
             Qt.WindowType.FramelessWindowHint |
@@ -78,7 +78,7 @@ class BeautifulSentence(QLabel):
         super().__init__()
         self.init()
 
-    def textGetSet(self):
+    def textGetSet(self) -> None:
         """
         # https://v1.hitokoto.cn/?c=a&c=g&c=b&c=d&c=i&c=j&c=k
         # url = "https://v1.hitokoto.cn/"
@@ -111,7 +111,7 @@ class BeautifulSentence(QLabel):
         print(sentence)
         self.setText(sentence)
 
-    def init(self):
+    def init(self) -> None:
         # 设置位置和大小
         self.setGeometry(50, 50, 600, 540)
         self.setStyleSheet("""
@@ -215,7 +215,8 @@ class Tray(QSystemTrayIcon):
         self.self_start.setText(self.language.self_start_on if os.path.exists(
             Data.start_link) else self.language.self_start_off)
 
-    def setMenuLanguage(self):
+    def setMenuLanguage(self) -> None:
+        """设置语言和切换语言"""
         self.menu_setting.setTitle(self.language.string_setting)
         self.action_setting0.setText(self.language.string_settingw)
         self.action_setting1.setText(self.language.string_e_menu)
@@ -239,7 +240,7 @@ class Tray(QSystemTrayIcon):
         self.self_start.setText(self.language.self_start_on if os.path.exists(
             os.path.expandvars(Data.start_link)) else self.language.self_start_off)
 
-    def __bind_functions(self):
+    def __bind_functions(self) -> None:
         # 设定窗口
         self.action_setting0.triggered.connect(lambda: EWidget().show())
         # 编辑menu-json
@@ -314,7 +315,7 @@ class Tray(QSystemTrayIcon):
         print("menu set.")
         return menu
 
-    def update_child_menus(self):
+    def update_child_menus(self) -> None:
         # 设定子菜单
         menus_info = {
             "star": Data.picture_star,
@@ -370,7 +371,7 @@ class Tray(QSystemTrayIcon):
                         action.setIcon(QIcon(action_icon))
 
     @staticmethod
-    def setting():
+    def setting() -> None:
         _format = {
             "type": "",
             "name": "",
@@ -383,7 +384,7 @@ class Tray(QSystemTrayIcon):
         os.startfile(appList_file)
 
     @staticmethod
-    def readSetting():
+    def readSetting() -> list:
         if os.path.exists(appList_file):
             with open(appList_file, "r", encoding="utf-8") as file:
                 data: list = json.load(file)
@@ -394,7 +395,7 @@ class Tray(QSystemTrayIcon):
         else:
             return []
 
-    def openTarget(self, p: str):
+    def openTarget(self, p: str) -> None:
         if p:
             print("Will open", p)
             try:
@@ -416,7 +417,7 @@ class Tray(QSystemTrayIcon):
             except Exception as _evt:
                 self.showMessage("Error", self.language.unable_open_file + p + str(_evt))
 
-    def set_tray(self):
+    def set_tray(self) -> None:
         item_num = len(self.readSetting())
         help_run = Data.string_on if appConfig.get("autorun") else Data.string_off
         self.setToolTip(
@@ -424,7 +425,7 @@ class Tray(QSystemTrayIcon):
         self.setIcon(QIcon(appConfig.get("logo")))
 
 
-def td_autorun():
+def td_autorun() -> None:
     if appConfig.get("autorun"):
         battery = psutil.sensors_battery()
         plugged = battery.power_plugged
@@ -437,7 +438,7 @@ def td_autorun():
                     time.sleep(3)
 
 
-def getDirName():
+def getDirName() -> str:
     # 判断是否打包环境
     if getattr(sys, 'frozen', False):
         base_path = os.path.dirname(sys.executable)  # exe所在目录
@@ -447,7 +448,7 @@ def getDirName():
     return base_path
 
 
-def getPath():
+def getPath() -> str:
     if getattr(sys, 'frozen', False):
         return sys.executable  # exe所在目录
     else:
@@ -458,7 +459,7 @@ def getPath():
 def makeShortcut(
         apppath, icoPath, workingDirectory,
         pathName, description="",
-        arguments="", style=1):
+        arguments="", style=1) -> None:
     if pathName and apppath:
         try:
             # 创建WScript.Shell对象
@@ -500,7 +501,7 @@ def makeShortcut(
             tray.showMessage("tip", app_language.tip_create_shortcut_fail)
 
 
-def delete_shortcut(path):
+def delete_shortcut(path: str) -> None:
     _msg = app_language.tip_delete_shortcut_success
     try:
         if os.path.exists(path):
@@ -513,7 +514,7 @@ def delete_shortcut(path):
     tray.showMessage("Tip", _msg)
 
 
-def check_update():
+def check_update() -> None:
     b, flag = check_version_match(Data.version)
     if b:
         tray.showMessage(
@@ -559,7 +560,7 @@ def setup_config_json() -> dict:
     return config
 
 
-def write_config_json(key: str, value):
+def write_config_json(key: str, value) -> None:
     if os.path.exists(config_file):
         try:
             with open(config_file, "r", encoding="utf-8") as f1:
@@ -580,7 +581,7 @@ def write_config_json(key: str, value):
         setup_config_json()
 
 
-def single_instance(port: int):
+def single_instance(port: int) -> socket.socket:
     try:
         # 选择一个不常用的端口
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

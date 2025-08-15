@@ -11,7 +11,7 @@ import os
 from dataclasses import dataclass, field
 
 
-def locate_assets_files(file):
+def locate_assets_files(file: str) -> str:
     assets = "assets"
     return os.path.join(assets, file)
 
@@ -21,6 +21,7 @@ class Data:
     bing = "https://cn.bing.com/search?q={}"
     version = "ver1.12.1-dev"
     website = "https://github.com/Pfolg/QuickTray"
+    # 解析环境变量
     start_link = os.path.expandvars("%AppData%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Quick Tray.lnk")
     user_folder = "app_config"
     config_file = os.path.join(user_folder, "basic_config.json")  # user_folder + "/basic_config.json"
@@ -72,7 +73,7 @@ class LanguageFormat:
     string_e_menu: str = "Editing menus"
     string_e_setting: str = "Editing setting"
     string_folder_program: str = "Program\'s folder"
-    string_u_menu: str = "Update menus"
+    string_u_menu: str = "Reload menus"
     string_c_update: str = "Check update"
     string_change_language: str = "Language"
     language_en: str = "English"
@@ -116,7 +117,7 @@ Language_ZH = LanguageFormat(
     string_e_menu="编辑菜单",
     string_e_setting="编辑设定",
     string_folder_program="打开目录",
-    string_u_menu="刷新菜单",
+    string_u_menu="重载菜单",
     string_c_update="检查更新",
     string_change_language="语言",
     language_en="英语",
