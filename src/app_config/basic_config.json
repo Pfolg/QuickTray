@@ -1,9 +1,0 @@
-{
-    "tip": "Quick Tray",
-    "version": "ver1.12.1-dev",
-    "logo": "assets\\luabackend.ico",
-    "usecount": 0,
-    "port": 20082,
-    "autorun": true,
-    "language": "en"
-}

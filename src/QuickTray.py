@@ -152,6 +152,11 @@ class Tray(QSystemTrayIcon):
         self.menu_setting = QMenu()
         self.language = app_language
         self.childMenus = {}
+        # 报时
+        self.hourTimer = QTimer()
+        self.lastMin = ""
+        self.isHourAlarm = appConfig.get("hourAlarm")
+        self.hourTimer.timeout.connect(self.hourAlarm)
         # 设定窗口
         self.action_setting0 = QAction(parent=self.menu_setting)
         # 编辑menu-json
@@ -184,7 +189,21 @@ class Tray(QSystemTrayIcon):
 
         self.__bind_functions()
         self.hot_boot()
+        self.hourTimer.start(1000)
         self.show()
+
+    def hourAlarm(self) -> None:
+        if not self.isHourAlarm and self.hourTimer:
+            self.hourTimer.stop()
+            self.hourTimer = None
+            return
+        now = time.strftime("%H:%M")
+        if now.split(":")[1] == "00" and now != self.lastMin:
+            self.lastMin = now
+            self.showMessage(
+                "Hour Alarm",
+                self.language.tip_hour_alarm + now
+            )
 
     def hot_boot(self):
         menu = self._addActions()
@@ -419,9 +438,14 @@ class Tray(QSystemTrayIcon):
 
     def set_tray(self) -> None:
         item_num = len(self.readSetting())
-        help_run = Data.string_on if appConfig.get("autorun") else Data.string_off
-        self.setToolTip(
-            f"{appConfig.get('tip')}\n{Data.version}\n{Data.s_tool_Items} {item_num}\n{'autorun'}: {help_run}")
+        info = (
+            f"{appConfig.get('tip')} "
+            f"{Data.version}\n"
+            f"{Data.s_tool_Items} {item_num}\n"
+            f"Autorun: {appConfig.get('autorun')}\n"
+            f"HourAlarm: {appConfig.get('hourAlarm')}"
+        )
+        self.setToolTip(info)
         self.setIcon(QIcon(appConfig.get("logo")))
 
 
@@ -535,7 +559,7 @@ def read_config_json() -> dict:
         if not config:
             print("your config is empty, rewrite……")
             config = setup_config_json()
-        config["usecount"] += 1
+        config["useCount"] += 1
         config["version"] = Data.version
         with open(config_file, "w", encoding="utf-8") as file2:
             json.dump(config, file2, indent=4, ensure_ascii=False)
@@ -550,10 +574,11 @@ def setup_config_json() -> dict:
         "tip": Data.app_name,
         "version": Data.version,
         "logo": Data.picture_luabackend,
-        "usecount": 0,
+        "useCount": 0,
         "port": Data.port,
         "autorun": Data.isautorun,
         "language": "en",  # en zh
+        "hourAlarm": False
     }
     with open(config_file, "w", encoding="utf-8") as file:
         json.dump(config, file, ensure_ascii=False, indent=4)

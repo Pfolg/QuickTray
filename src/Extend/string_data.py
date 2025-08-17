@@ -83,6 +83,7 @@ class LanguageFormat:
     tip_create_shortcut_fail: str = "Self-starting setting failed"
     tip_delete_shortcut_success: str = "The self-start has been successfully canceled"
     tip_delete_shortcut_fail: str = "Failed to cancel self-starting"
+    tip_hour_alarm: str = "Now is: "
     self_start_on: str = "Self-start ✅"
     self_start_off: str = "Self-start ❌"
 
@@ -127,6 +128,7 @@ Language_ZH = LanguageFormat(
     tip_create_shortcut_fail="自启动设置失败",
     tip_delete_shortcut_success="取消自启动成功",
     tip_delete_shortcut_fail="取消自启动失败",
+    tip_hour_alarm="现在是：",
     self_start_on="自启动 ✅",
     self_start_off="自启动 ❌",
 
