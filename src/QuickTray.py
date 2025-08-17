@@ -31,7 +31,7 @@ class SearchBox(QLineEdit):
         super().__init__()
         self.init()
 
-    def search_in_browser(self):
+    def search_in_browser(self) -> None:
         visible = self.isVisible()
         query = self.text()
         if query and visible:
@@ -44,7 +44,7 @@ class SearchBox(QLineEdit):
         self.setText("")
         self.setVisible(False)
 
-    def init(self):
+    def init(self) -> None:
         self.setGeometry(500, 500, 500, 60)
         self.setWindowFlags(
             Qt.WindowType.FramelessWindowHint |
@@ -78,7 +78,7 @@ class BeautifulSentence(QLabel):
         super().__init__()
         self.init()
 
-    def textGetSet(self):
+    def textGetSet(self) -> None:
         """
         # https://v1.hitokoto.cn/?c=a&c=g&c=b&c=d&c=i&c=j&c=k
         # url = "https://v1.hitokoto.cn/"
@@ -111,7 +111,7 @@ class BeautifulSentence(QLabel):
         print(sentence)
         self.setText(sentence)
 
-    def init(self):
+    def init(self) -> None:
         # 设置位置和大小
         self.setGeometry(50, 50, 600, 540)
         self.setStyleSheet("""
@@ -152,6 +152,11 @@ class Tray(QSystemTrayIcon):
         self.menu_setting = QMenu()
         self.language = app_language
         self.childMenus = {}
+        # 报时
+        self.hourTimer = QTimer()
+        self.lastMin = ""
+        self.isHourAlarm = appConfig.get("hourAlarm")
+        self.hourTimer.timeout.connect(self.hourAlarm)
         # 设定窗口
         self.action_setting0 = QAction(parent=self.menu_setting)
         # 编辑menu-json
@@ -184,7 +189,21 @@ class Tray(QSystemTrayIcon):
 
         self.__bind_functions()
         self.hot_boot()
+        self.hourTimer.start(1000)
         self.show()
+
+    def hourAlarm(self) -> None:
+        if not self.isHourAlarm and self.hourTimer:
+            self.hourTimer.stop()
+            self.hourTimer = None
+            return
+        now = time.strftime("%H:%M")
+        if now.split(":")[1] == "00" and now != self.lastMin:
+            self.lastMin = now
+            self.showMessage(
+                "Hour Alarm",
+                self.language.tip_hour_alarm + now
+            )
 
     def hot_boot(self):
         menu = self._addActions()
@@ -215,7 +234,8 @@ class Tray(QSystemTrayIcon):
         self.self_start.setText(self.language.self_start_on if os.path.exists(
             Data.start_link) else self.language.self_start_off)
 
-    def setMenuLanguage(self):
+    def setMenuLanguage(self) -> None:
+        """设置语言和切换语言"""
         self.menu_setting.setTitle(self.language.string_setting)
         self.action_setting0.setText(self.language.string_settingw)
         self.action_setting1.setText(self.language.string_e_menu)
@@ -239,7 +259,7 @@ class Tray(QSystemTrayIcon):
         self.self_start.setText(self.language.self_start_on if os.path.exists(
             os.path.expandvars(Data.start_link)) else self.language.self_start_off)
 
-    def __bind_functions(self):
+    def __bind_functions(self) -> None:
         # 设定窗口
         self.action_setting0.triggered.connect(lambda: EWidget().show())
         # 编辑menu-json
@@ -314,7 +334,7 @@ class Tray(QSystemTrayIcon):
         print("menu set.")
         return menu
 
-    def update_child_menus(self):
+    def update_child_menus(self) -> None:
         # 设定子菜单
         menus_info = {
             "star": Data.picture_star,
@@ -370,7 +390,7 @@ class Tray(QSystemTrayIcon):
                         action.setIcon(QIcon(action_icon))
 
     @staticmethod
-    def setting():
+    def setting() -> None:
         _format = {
             "type": "",
             "name": "",
@@ -383,7 +403,7 @@ class Tray(QSystemTrayIcon):
         os.startfile(appList_file)
 
     @staticmethod
-    def readSetting():
+    def readSetting() -> list:
         if os.path.exists(appList_file):
             with open(appList_file, "r", encoding="utf-8") as file:
                 data: list = json.load(file)
@@ -394,7 +414,7 @@ class Tray(QSystemTrayIcon):
         else:
             return []
 
-    def openTarget(self, p: str):
+    def openTarget(self, p: str) -> None:
         if p:
             print("Will open", p)
             try:
@@ -416,15 +436,20 @@ class Tray(QSystemTrayIcon):
             except Exception as _evt:
                 self.showMessage("Error", self.language.unable_open_file + p + str(_evt))
 
-    def set_tray(self):
+    def set_tray(self) -> None:
         item_num = len(self.readSetting())
-        help_run = Data.string_on if appConfig.get("autorun") else Data.string_off
-        self.setToolTip(
-            f"{appConfig.get('tip')}\n{Data.version}\n{Data.s_tool_Items} {item_num}\n{'autorun'}: {help_run}")
+        info = (
+            f"{appConfig.get('tip')} "
+            f"{Data.version}\n"
+            f"{Data.s_tool_Items} {item_num}\n"
+            f"Autorun: {appConfig.get('autorun')}\n"
+            f"HourAlarm: {appConfig.get('hourAlarm')}"
+        )
+        self.setToolTip(info)
         self.setIcon(QIcon(appConfig.get("logo")))
 
 
-def td_autorun():
+def td_autorun() -> None:
     if appConfig.get("autorun"):
         battery = psutil.sensors_battery()
         plugged = battery.power_plugged
@@ -437,7 +462,7 @@ def td_autorun():
                     time.sleep(3)
 
 
-def getDirName():
+def getDirName() -> str:
     # 判断是否打包环境
     if getattr(sys, 'frozen', False):
         base_path = os.path.dirname(sys.executable)  # exe所在目录
@@ -447,7 +472,7 @@ def getDirName():
     return base_path
 
 
-def getPath():
+def getPath() -> str:
     if getattr(sys, 'frozen', False):
         return sys.executable  # exe所在目录
     else:
@@ -458,7 +483,7 @@ def getPath():
 def makeShortcut(
         apppath, icoPath, workingDirectory,
         pathName, description="",
-        arguments="", style=1):
+        arguments="", style=1) -> None:
     if pathName and apppath:
         try:
             # 创建WScript.Shell对象
@@ -500,7 +525,7 @@ def makeShortcut(
             tray.showMessage("tip", app_language.tip_create_shortcut_fail)
 
 
-def delete_shortcut(path):
+def delete_shortcut(path: str) -> None:
     _msg = app_language.tip_delete_shortcut_success
     try:
         if os.path.exists(path):
@@ -513,7 +538,7 @@ def delete_shortcut(path):
     tray.showMessage("Tip", _msg)
 
 
-def check_update():
+def check_update() -> None:
     b, flag = check_version_match(Data.version)
     if b:
         tray.showMessage(
@@ -534,7 +559,7 @@ def read_config_json() -> dict:
         if not config:
             print("your config is empty, rewrite……")
             config = setup_config_json()
-        config["usecount"] += 1
+        config["useCount"] += 1
         config["version"] = Data.version
         with open(config_file, "w", encoding="utf-8") as file2:
             json.dump(config, file2, indent=4, ensure_ascii=False)
@@ -549,17 +574,18 @@ def setup_config_json() -> dict:
         "tip": Data.app_name,
         "version": Data.version,
         "logo": Data.picture_luabackend,
-        "usecount": 0,
+        "useCount": 0,
         "port": Data.port,
         "autorun": Data.isautorun,
         "language": "en",  # en zh
+        "hourAlarm": False
     }
     with open(config_file, "w", encoding="utf-8") as file:
         json.dump(config, file, ensure_ascii=False, indent=4)
     return config
 
 
-def write_config_json(key: str, value):
+def write_config_json(key: str, value) -> None:
     if os.path.exists(config_file):
         try:
             with open(config_file, "r", encoding="utf-8") as f1:
@@ -580,7 +606,7 @@ def write_config_json(key: str, value):
         setup_config_json()
 
 
-def single_instance(port: int):
+def single_instance(port: int) -> socket.socket:
     try:
         # 选择一个不常用的端口
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
