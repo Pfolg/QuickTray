@@ -19,7 +19,7 @@ def locate_assets_files(file: str) -> str:
 class Data:
     app_name = "Quick Tray"
     bing = "https://cn.bing.com/search?q={}"
-    version = "ver1.12.1-20250818"
+    version = "ver1.12.2-dev"
     website = "https://github.com/Pfolg/QuickTray"
     # 解析环境变量
     start_link = os.path.expandvars("%AppData%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Quick Tray.lnk")
