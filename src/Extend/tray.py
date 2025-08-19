@@ -155,7 +155,7 @@ class Tray(QSystemTrayIcon):
         # 操作快捷方式
         self.self_start.triggered.connect(self.shortcut_option)
         self.action_quit.triggered.connect(sys.exit)
-        self.action_update.triggered.connect(check_update)
+        self.action_update.triggered.connect(lambda: check_update(self))
         self.action_website.triggered.connect(lambda: self.openTarget(Data.website))
 
     def _addActions(self) -> QMenu:

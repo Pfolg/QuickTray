@@ -33,9 +33,10 @@ if __name__ == '__main__':
     appConfig = read_config_json(config_file)
     # 设定语言
     app_language = getLanguage(appConfig.get("language"))
-
+    # 初始化app
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon(appConfig.get("logo")))
+    # 初始化托盘
     tray = Tray(
         language=app_language,
         config_file=config_file,
@@ -48,6 +49,7 @@ if __name__ == '__main__':
     TextLabel = BeautifulSentence(lines_file)
     TextLabel.show()
     TextLabel.setText("Quick Tray is running.")
+    ### 链接动作
     # 更新标签
     tray.action_updateText.triggered.connect(lambda: TextLabel.textGetSet())
     # 复制文本
