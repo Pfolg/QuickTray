@@ -48,7 +48,6 @@ if __name__ == '__main__':
     # 左上角句子
     TextLabel = BeautifulSentence(lines_file)
     TextLabel.show()
-    TextLabel.setText("Quick Tray is running.")
     ### 链接动作
     # 更新标签
     tray.action_updateText.triggered.connect(lambda: TextLabel.textGetSet())
@@ -73,4 +72,4 @@ if __name__ == '__main__':
         # 占用端口以识别单个实例
         lock_socket = single_instance(appConfig.get("port"), tray)
     sys.exit(app.exec())
-    # "pyinstaller.exe -F -w -i .\assets\luabackend.ico .\QuickTray.py"
+    # "pyinstaller.exe -F -w -i .\assets\image\luabackend.ico .\QuickTray.py"
