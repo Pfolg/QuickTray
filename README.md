@@ -14,7 +14,7 @@ _A system tray utility based on PySide6, providing quick launch and text display
 </div>
 
 >[!NOTE]
->README: [简体中文](docs/README.zh-CN.md)
+>README: [简体中文](https://github.com/Pfolg/QuickTray/wiki/README%E2%80%90Chinese)
 
 
 # Features
