@@ -28,7 +28,7 @@ if __name__ == '__main__':
     if not os.path.exists(Data.user_folder):
         os.mkdir(Data.user_folder)
     # 是否正在测试
-    isTest = True
+    isTest = False
     # 读取配置
     appConfig = read_config_json(config_file)
     # 设定语言
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     if not isTest:
         time1.start(3000)  # 3s
         TextLabel.textGetSet()  # 手动调用
-        time2.start(30000)  # 5min
+        time2.start(300000)  # 5min
         # 占用端口以识别单个实例
         lock_socket = single_instance(appConfig.get("port"), tray)
     sys.exit(app.exec())
